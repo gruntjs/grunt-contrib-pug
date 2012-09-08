@@ -1,0 +1,41 @@
+{
+  "name": "grunt-contrib-jade",
+  "description": "Compile Jade files to HTML.",
+  "version": "0.2.0",
+  "homepage": "https://github.com/gruntjs/grunt-contrib-jade",
+  "author": {
+    "name": "Eric Woroshow",
+    "url": "http://ericw.ca/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gruntjs/grunt-contrib-jade.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gruntjs/grunt-contrib-jade/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/gruntjs/grunt-contrib-jade/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "jade": "~0.27.2",
+    "grunt-contrib-lib": "~0.1.0",
+    "grunt-contrib-clean": "~0.1.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.15"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
