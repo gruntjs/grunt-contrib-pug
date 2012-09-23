@@ -44,20 +44,12 @@ module.exports = function(grunt) {
         files: {
           'tmp/jade.html': ['test/fixtures/jade.jade'],
           'tmp/jade2.html': ['test/fixtures/jade2.jade'],
-          'tmp/jadeInclude.html': ['test/fixtures/jadeInclude.jade']
-        },
-        options: {
-          data: {
-            test: true
-          }
-        }
-      },
-      template: {
-        files: {
+          'tmp/jadeInclude.html': ['test/fixtures/jadeInclude.jade'],
           'tmp/jadeTemplate.html': ['test/fixtures/jadeTemplate.jade']
         },
         options: {
           data: {
+            test: true,
             year: '<%= grunt.template.today("yyyy") %>'
           }
         }

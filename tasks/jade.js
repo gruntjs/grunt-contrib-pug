@@ -14,11 +14,11 @@ module.exports = function(grunt) {
   grunt.util = grunt.util || grunt.utils;
 
   grunt.registerMultiTask('jade', 'Compile Jade templates into HTML.', function() {
-
-    var _ = grunt.util._;
-    var kindOf = grunt.util.kindOf;
     var helpers = require('grunt-contrib-lib').init(grunt);
-    var options = helpers.options(this, {data: {}});
+
+    var options = helpers.options(this, {
+      data: {}
+    });
 
     grunt.verbose.writeflags(options, 'Options');
 
@@ -27,17 +27,8 @@ module.exports = function(grunt) {
 
     var helperData = options.data;
 
-    _.each(helperData, function(value, key) {
-      if (kindOf(value) === 'string') {
-        helperData[key] = grunt.template.process(value);
-      }
-    });
-
     var srcFiles;
     var taskOutput;
-    var sourceCode;
-    var sourceCompiled;
-    var helperOptions;
 
     this.files.forEach(function(file) {
       srcFiles = grunt.file.expandFiles(file.src);
@@ -45,24 +36,24 @@ module.exports = function(grunt) {
       taskOutput = [];
 
       srcFiles.forEach(function(srcFile) {
-        helperOptions = _.extend({filename: srcFile}, options);
-        sourceCode = grunt.file.read(srcFile);
-
-        sourceCompiled = compileJade(sourceCode, helperOptions, helperData);
-
-        taskOutput.push(sourceCompiled);
+        taskOutput.push(compileJade(srcFile, options, options.data));
       });
 
       if (taskOutput.length > 0) {
         grunt.file.write(file.dest, taskOutput.join('\n'));
-        grunt.log.writeln('File ' + file.dest + ' created.');
+        grunt.log.writeln('File ' + file.dest.cyan + ' created.');
       }
     });
   });
 
-  var compileJade = function(src, options, data) {
+  var compileJade = function(srcFile, options, data) {
+    options = grunt.util._.extend({filename: srcFile}, options);
+    delete options.data;
+
+    var srcCode = grunt.file.read(srcFile);
+
     try {
-      return require('jade').compile(src, options)(data);
+      return require('jade').compile(srcCode, options)(data);
     } catch (e) {
       grunt.log.error(e);
       grunt.fail.warn('Jade failed to compile.');

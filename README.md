@@ -106,5 +106,5 @@ jade: {
 ```
 
 ## Release History
-
-* 2012/08/10 - v0.2.0 - Refactored from grunt-contrib into individual repo.
+* 2012/09/24 - v0.2.1 - general cleanup and consolidation. test refactoring.
+* 2012/09/10 - v0.2.0 - Refactored from grunt-contrib into individual repo.
