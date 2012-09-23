@@ -25,8 +25,6 @@ module.exports = function(grunt) {
     // TODO: ditch this when grunt v0.4 is released
     this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
 
-    var helperData = options.data;
-
     var srcFiles;
     var taskOutput;
 
