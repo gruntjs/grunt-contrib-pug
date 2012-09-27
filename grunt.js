@@ -45,7 +45,8 @@ module.exports = function(grunt) {
           'tmp/jade.html': ['test/fixtures/jade.jade'],
           'tmp/jade2.html': ['test/fixtures/jade2.jade'],
           'tmp/jadeInclude.html': ['test/fixtures/jadeInclude.jade'],
-          'tmp/jadeTemplate.html': ['test/fixtures/jadeTemplate.jade']
+          'tmp/jadeTemplate.html': ['test/fixtures/jadeTemplate.jade'],
+          'tmp/individual/*.html': ['test/fixtures/jade.jade', 'test/fixtures/jade2.jade', 'test/fixtures/level2/jade3.jade']
         },
         options: {
           data: {
@@ -53,7 +54,19 @@ module.exports = function(grunt) {
             year: '<%= grunt.template.today("yyyy") %>'
           }
         }
-      }
+      },
+      flatten: {
+        files: {
+          'tmp/individual_flatten/*.html': ['test/fixtures/jade.jade', 'test/fixtures/jade2.jade', 'test/fixtures/level2/jade3.jade']
+        },
+        options: {
+          flatten: true,
+          data: {
+            test: true,
+            year: '<%= grunt.template.today("yyyy") %>'
+          }
+        }
+      }      
     },
 
 

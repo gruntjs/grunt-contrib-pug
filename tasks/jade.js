@@ -15,26 +15,48 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('jade', 'Compile Jade templates into HTML.', function() {
     var helpers = require('grunt-contrib-lib').init(grunt);
+    var path = require('path');
 
     var options = helpers.options(this, {
-      data: {}
+      data: {},
+      flatten: false,
+      basePath: false
     });
 
     grunt.verbose.writeflags(options, 'Options');
 
     // TODO: ditch this when grunt v0.4 is released
     this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
-
+    var basePath;
+    var newFileDest;
+    
     var srcFiles;
+    var srcCompiled;
     var taskOutput;
 
     this.files.forEach(function(file) {
+      file.dest = path.normalize(file.dest);
       srcFiles = grunt.file.expandFiles(file.src);
-
+      
+      if (srcFiles.length === 0) {
+        grunt.log.writeln('Unable to compile; no valid source files were found.');
+        return;
+      }
       taskOutput = [];
 
       srcFiles.forEach(function(srcFile) {
-        taskOutput.push(compileJade(srcFile, options, options.data));
+        srcCompiled = compileJade(srcFile, options, options.data);
+        
+        if (helpers.isIndividualDest(file.dest)) {
+          basePath = helpers.findBasePath(srcFiles, options.basePath);
+          newFileDest = helpers.buildIndividualDest(file.dest, srcFile, basePath, options.flatten);
+
+          grunt.file.write(newFileDest, srcCompiled || '');
+          grunt.log.writeln('File ' + newFileDest.cyan + ' created.');          
+        } else {
+          taskOutput.push(compileJade(srcFile, options, options.data));
+        }
+        
       });
 
       if (taskOutput.length > 0) {

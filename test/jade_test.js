@@ -1,10 +1,11 @@
 var grunt = require('grunt');
+var fs = require('fs');
 
 exports.jade = {
   compile: function(test) {
     'use strict';
 
-    test.expect(4);
+    test.expect(5);
 
     var actual = grunt.file.read('tmp/jade.html');
     var expected = grunt.file.read('test/expected/jade.html');
@@ -21,6 +22,21 @@ exports.jade = {
     actual = grunt.file.read('tmp/jadeTemplate.html');
     expected = grunt.file.read('test/expected/jadeTemplate.html');
     test.equal(expected, actual, 'should compile jade templates to html with grunt template support');
+    
+    actual = fs.readdirSync('tmp/individual').sort();
+    expected = fs.readdirSync('test/expected/individual').sort();
+    test.deepEqual(expected, actual, 'should compile jade templates individually to html files');
+    
+    test.done();
+  },
+  flatten: function(test) {
+    'use strict';
+
+    test.expect(1);
+
+    var actual = fs.readdirSync('tmp/individual_flatten').sort();
+    var expected = fs.readdirSync('test/expected/individual_flatten').sort();
+    test.deepEqual(expected, actual, 'should compile jade templates individually to html files (to flat structure)');
 
     test.done();
   }
