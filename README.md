@@ -1,5 +1,6 @@
 # grunt-contrib-jade [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-jade)
-> Compile Jade files to HTML (part of the [grunt-contrib](https://github.com/gruntjs/grunt-contrib) collection). Submitted by [Eric Woroshow](https://github.com/errcw).
+
+> Compile Jade files to HTML.
 
 ### Overview
 
@@ -106,5 +107,10 @@ jade: {
 ```
 
 ## Release History
-* 2012/09/24 - v0.3.0 - general cleanup and consolidation. test refactoring. global options depreciated.
-* 2012/09/10 - v0.2.0 - refactored from grunt-contrib into individual repo.
+
+* 2012/09/24 - v0.3.0 - Global options depreciated.
+* 2012/09/10 - v0.2.0 - Refactored from grunt-contrib into individual repo.
+
+--
+
+Task submitted by [Eric Woroshow](https://github.com/errcw).
