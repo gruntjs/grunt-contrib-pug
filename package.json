@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-jade",
   "description": "Compile Jade files to HTML.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/gruntjs/grunt-contrib-jade",
   "author": {
     "name": "Grunt Team",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "jade": "~0.27.2",
-    "grunt-contrib-lib": "~0.3.0"
+    "grunt-lib-contrib": "~0.3.0"
   },
   "devDependencies": {
     "grunt": "~0.3.15",
