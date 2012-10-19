@@ -6,26 +6,19 @@
  * Licensed under the MIT license.
  */
 
-module.exports = function(grunt) {
-  'use strict';
+'use strict';
 
-  // TODO: ditch this when grunt v0.4 is released
-  grunt.util = grunt.util || grunt.utils;
+module.exports = function(grunt) {
 
   grunt.registerMultiTask('jade', 'Compile Jade templates into HTML.', function() {
+    var srcFiles, taskOutput;
     var helpers = require('grunt-lib-contrib').init(grunt);
 
-    var options = helpers.options(this, {
+    var options = this.options({
       data: {}
     });
 
     grunt.verbose.writeflags(options, 'Options');
-
-    // TODO: ditch this when grunt v0.4 is released
-    this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
-
-    var srcFiles;
-    var taskOutput;
 
     this.files.forEach(function(file) {
       srcFiles = grunt.file.expandFiles(file.src);

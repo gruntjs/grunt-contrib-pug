@@ -1,4 +1,7 @@
-##### files ```object```
+# Options
+
+## files
+Type: `Object`
 
 This defines what files this task will process and should contain key:value pairs.
 
@@ -6,12 +9,7 @@ The key (destination) should be an unique filepath (supports [grunt.template](ht
 
 Note: When the value contains an array of multiple filepaths, the contents are concatenated in the order passed.
 
-##### options ```object```
+## options.data
+Type: `Object`
 
-This controls how this task (and its helpers) operate and should contain key:value pairs, see options below.
-
-#### Options
-
-##### data ```object```
-
-Sets the data passed to ```jade``` during template compilation. Any data can be passed to the template (including ```grunt``` templates).
+Sets the data passed to `jade` during template compilation. Any data can be passed to the template (including `grunt` templates).
