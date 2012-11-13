@@ -75,3 +75,18 @@ jade: {
   }
 }
 ```
+
+Use the `pretty` option to output pretty HTML:
+
+```js
+jade: {
+  debug: {
+    options: {
+      pretty: true
+    },
+    files: {
+      "debug.html": "test.jade"
+    }
+  }
+}
+```

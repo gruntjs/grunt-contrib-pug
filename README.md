@@ -26,6 +26,10 @@ This controls how this task (and its helpers) operate and should contain key:val
 
 Sets the data passed to ```jade``` during template compilation. Any data can be passed to the template (including ```grunt``` templates).
 
+##### pretty ```boolean```
+
+Compile pretty html output.
+
 #### Config Examples
 
 ``` javascript
@@ -90,7 +94,7 @@ jade: {
 
 or you can use `grunt` helpers (grunt object was exposed at template context):
 
-``` javascript
+```js
 jade: {
   debug: {
     options: {
@@ -98,6 +102,21 @@ jade: {
         debug: true,
         timestamp: "<%= grunt.template.today() %>"
       }
+    },
+    files: {
+      "debug.html": "test.jade"
+    }
+  }
+}
+```
+
+Use the `pretty` option to output indented HTML:
+
+```js
+jade: {
+  debug: {
+    options: {
+      pretty: true
     },
     files: {
       "debug.html": "test.jade"
