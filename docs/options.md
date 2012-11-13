@@ -18,4 +18,4 @@ Sets the data passed to ```jade``` during template compilation. Any data can be 
 
 ##### data ```pretty```
 
-Compile pretty html output.
+Configure ```jade``` to output pretty HTML.

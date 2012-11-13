@@ -28,7 +28,7 @@ Sets the data passed to ```jade``` during template compilation. Any data can be 
 
 ##### pretty ```boolean```
 
-Compile pretty html output.
+Configure ```jade``` to output pretty HTML.
 
 #### Config Examples
 
