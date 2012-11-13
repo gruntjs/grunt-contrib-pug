@@ -15,3 +15,7 @@ This controls how this task (and its helpers) operate and should contain key:val
 ##### data ```object```
 
 Sets the data passed to ```jade``` during template compilation. Any data can be passed to the template (including ```grunt``` templates).
+
+##### data ```pretty```
+
+Configure ```jade``` to output pretty HTML.
