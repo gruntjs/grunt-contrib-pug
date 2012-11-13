@@ -11,29 +11,22 @@
 module.exports = function(grunt) {
 
   grunt.registerMultiTask('jade', 'Compile Jade templates into HTML.', function() {
-    var srcFiles, taskOutput;
     var helpers = require('grunt-lib-contrib').init(grunt);
-
     var options = this.options({
       data: {}
     });
 
     grunt.verbose.writeflags(options, 'Options');
 
-    this.files.forEach(function(file) {
-      srcFiles = grunt.file.expandFiles(file.src);
-
-      taskOutput = [];
-
-      srcFiles.forEach(function(srcFile) {
-        taskOutput.push(compileJade(srcFile, options, options.data));
-      });
-
-      if (taskOutput.length > 0) {
-        grunt.file.write(file.dest, taskOutput.join('\n'));
-        grunt.log.writeln('File ' + file.dest.cyan + ' created.');
-      }
+    var files = grunt.file.expandFiles(this.file.src);
+    var taskOutput = files.map(function(file) {
+      return compileJade(file, options, options.data);
     });
+
+    if (taskOutput.length > 0) {
+      grunt.file.write(this.file.dest, taskOutput.join('\n'));
+      grunt.log.writeln('File ' + this.file.dest.cyan + ' created.');
+    }
   });
 
   var compileJade = function(srcFile, options, data) {
