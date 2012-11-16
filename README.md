@@ -51,7 +51,7 @@ If you want to generate a debug file and a release file from the same template:
 
 ``` javascript
 jade: {
-  debug: {
+  compile: {
     options: {
       data: {
         debug: true
@@ -78,7 +78,7 @@ If you want to use `grunt` template in `options.data`:
 
 ``` javascript
 jade: {
-  debug: {
+  compile: {
     options: {
       data: {
         debug: true,
@@ -96,7 +96,7 @@ or you can use `grunt` helpers (grunt object was exposed at template context):
 
 ```js
 jade: {
-  debug: {
+  compile: {
     options: {
       data: {
         debug: true,
@@ -114,7 +114,7 @@ Use the `pretty` option to output indented HTML:
 
 ```js
 jade: {
-  debug: {
+  compile: {
     options: {
       pretty: true
     },
