@@ -25,7 +25,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "./node_modules/.bin/grunt test"
   },
   "dependencies": {
     "jade": "~0.27.2",
@@ -35,7 +35,8 @@
     "grunt-contrib-jshint": "0.1.0",
     "grunt-contrib-nodeunit": "0.1.0",
     "grunt-contrib-internal": "*",
-    "grunt": "~0.4.0a"
+    "grunt": "~0.4.0a",
+    "grunt-cli": "~0.1.1"
   },
   "keywords": [
     "gruntplugin"
