@@ -18,8 +18,7 @@ module.exports = function(grunt) {
 
     grunt.verbose.writeflags(options, 'Options');
 
-    var files = grunt.file.expandFiles(this.file.src);
-    var taskOutput = files.map(function(file) {
+    var taskOutput = this.file.src.map(function(file) {
       return compileJade(file, options, options.data);
     });
 
