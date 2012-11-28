@@ -17,36 +17,24 @@ npm install grunt-contrib-jade --save-dev
 ## Jade task
 _Run this task with the `grunt jade` command._
 
-### Overview
+_This task is a [multi task][] so any targets, files and options should be specified according to the [multi task][] documentation._
+[multi task]: https://github.com/gruntjs/grunt/wiki/Configuring-tasks
 
-In your project's Gruntfile, add a section named `jade` to the data object passed into `grunt.initConfig()`.
 
-```js
-grunt.initConfig({
-  jade: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-})
-```
 ### Options
 
-#### options.pretty
+#### pretty
 Type: `Boolean`
 Default: false
 
 Output indented HTML.
 
-#### options.data
+#### data
 Type: `Object`
 
 Sets the data passed to `jade` during template compilation. Any data can be passed to the template (including `grunt` templates).
 
-### Examples
+### Usage Examples
 
 ```js
 jade: {
@@ -126,6 +114,7 @@ jade: {
 }
 ```
 
+
 ## Release History
 
  * 2012-10-11   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
@@ -136,4 +125,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Tue Nov 13 2012 16:27:02.*
+*This file was generated on Wed Nov 28 2012 08:39:18.*
