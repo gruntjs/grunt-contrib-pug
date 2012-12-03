@@ -52,6 +52,19 @@ module.exports = function(grunt) {
             year: '<%= grunt.template.today("yyyy") %>'
           }
         }
+      },
+      compile_dynamic_data: {
+        files: {
+          'tmp/jadeDynamicData.html': ['test/fixtures/jadeDynamicData.jade']
+        },
+        options: {
+          data: function(dest, src) {
+            return {
+              dest: dest,
+              src: src
+            }
+          }
+        }
       }
     },
 

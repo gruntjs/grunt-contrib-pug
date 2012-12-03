@@ -24,8 +24,7 @@ module.exports = function(grunt) {
     // TODO: ditch this when grunt v0.4 is released
     this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
 
-    var srcFiles;
-    var taskOutput;
+    var srcFiles, taskOutput, data;
 
     this.files.forEach(function(file) {
       srcFiles = grunt.file.expandFiles(file.src);
@@ -33,7 +32,12 @@ module.exports = function(grunt) {
       taskOutput = [];
 
       srcFiles.forEach(function(srcFile) {
-        taskOutput.push(compileJade(srcFile, options, options.data));
+        if (grunt.util._.isFunction(options.data)) {
+          data = options.data.call(null, file.dest, srcFile);
+        } else {
+          data = options.data;
+        }
+        taskOutput.push(compileJade(srcFile, options, data));
       });
 
       if (taskOutput.length > 0) {

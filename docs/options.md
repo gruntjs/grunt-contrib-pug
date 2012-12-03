@@ -15,6 +15,18 @@ This controls how this task (and its helpers) operate and should contain key:val
 ##### data ```object```
 
 Sets the data passed to ```jade``` during template compilation. Any data can be passed to the template (including ```grunt``` templates).
+This value also might be a function taking source and destination path as arguments and returning a data object. 
+
+```js
+options: {
+  data: function(dest, src) {
+    return {
+      from: src,
+      to: dest
+    };
+  }
+}
+```
 
 ##### data ```pretty```
 
