@@ -14,7 +14,7 @@ module.exports = function(grunt) {
   // TODO: ditch this when grunt v0.4 is released
   grunt.util = grunt.util || grunt.utils;
 
-  grunt.registerMultiTask('jade', 'Compile Jade templates into HTML.', function() {
+  grunt.registerMultiTask('jade', 'Compile Jade templates into HTML or JavaScript.', function() {
     var helpers = require('grunt-lib-contrib').init(grunt);
 
     var options = helpers.options(this, {
