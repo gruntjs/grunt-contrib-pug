@@ -68,6 +68,6 @@ module.exports = function(grunt) {
   };
 
   var compileJadeTemplate = function(srcCode, srcFile, basePath, options){
-
+    var templateName = options.templatePath + srcFile.replace(basePath, '').replace('.jade', '');
   };
 };
