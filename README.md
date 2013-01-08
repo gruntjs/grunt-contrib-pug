@@ -30,6 +30,18 @@ Sets the data passed to ```jade``` during template compilation. Any data can be 
 
 Configure ```jade``` to output pretty HTML.
 
+##### client ```boolean```
+
+Setting ```client``` to true will allow jade templates to be compiled as JavaScript templates instead of HTML.
+
+##### templatePath ```string```
+
+If client is set to true, templatePath will act as the template path for compilation of JavaScript templates. Defaults to templates.
+
+##### templatesArray ```string```
+
+If client is set to true, templatesArray will ast as the window object in which to store the jade templates. Defaults to JadeTemplates.
+
 #### Config Examples
 
 ``` javascript
@@ -39,6 +51,22 @@ jade: {
       data: {
         debug: false
       }
+    },
+    files: {
+      "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
+    }
+  }
+}
+```
+
+If you want to generate a JavaScript template instead of HTML:
+``` javascript
+jade: {
+  compile: {
+    options: {
+      templatePath : 'templates',
+      templatesArray : 'JadeTemplates',
+      client : true
     },
     files: {
       "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
