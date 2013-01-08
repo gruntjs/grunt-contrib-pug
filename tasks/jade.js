@@ -26,14 +26,23 @@ module.exports = function(grunt) {
 
     var srcFiles;
     var taskOutput;
+    var basePath;
 
     this.files.forEach(function(file) {
       srcFiles = grunt.file.expandFiles(file.src);
+      basePath = helpers.findBasePath(srcFiles);
 
       taskOutput = [];
 
       srcFiles.forEach(function(srcFile) {
-        taskOutput.push(compileJade(srcFile, options, options.data));
+
+        var srcCode = grunt.file.read(srcFile);
+
+        if (options.client) {
+          taskOutput.push(compileJadeTemplate(srcCode, srcFile, basePath, options));        
+        } else {
+          taskOutput.push(compileJade(srcFile, options, options.data));
+        }
       });
 
       if (taskOutput.length > 0) {
@@ -55,5 +64,9 @@ module.exports = function(grunt) {
       grunt.log.error(e);
       grunt.fail.warn('Jade failed to compile.');
     }
+  };
+
+  var compileJadeTemplate = function(srcCode, srcFile, basePath, options){
+
   };
 };
