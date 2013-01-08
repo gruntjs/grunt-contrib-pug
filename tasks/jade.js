@@ -9,6 +9,8 @@
 module.exports = function(grunt) {
   'use strict';
 
+  var jade = require('jade');
+
   // TODO: ditch this when grunt v0.4 is released
   grunt.util = grunt.util || grunt.utils;
 
@@ -16,7 +18,9 @@ module.exports = function(grunt) {
     var helpers = require('grunt-lib-contrib').init(grunt);
 
     var options = helpers.options(this, {
-      data: {}
+      data: {},
+      templatesArray : 'JadeTemplates',
+      templatePath : 'templates'
     });
 
     grunt.verbose.writeflags(options, 'Options');
@@ -56,7 +60,7 @@ module.exports = function(grunt) {
 
   var compileJade = function(srcFile, options, data) {
     try {
-      return require('jade').compile(srcCode, options)(data);
+      return jade.compile(srcCode, options)(data);
     } catch (e) {
       grunt.log.error(e);
       grunt.fail.warn('Jade failed to compile.');
