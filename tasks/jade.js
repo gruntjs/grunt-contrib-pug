@@ -12,18 +12,21 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('jade', 'Compile Jade templates into HTML.', function() {
     var options = this.options({
-      data: {}
+      data: {},
+      separator: grunt.util.linefeed
     });
 
     grunt.verbose.writeflags(options, 'Options');
 
     this.files.forEach(function(f) {
-      var taskOutput = f.src.map(function(file) {
+      var output = f.src.map(function(file) {
         return compileJade(file, options, options.data);
-      });
+      }).join(grunt.util.normalizelf(options.separator));
 
-      if (taskOutput.length > 0) {
-        grunt.file.write(f.dest, taskOutput.join('\n'));
+      if (output.length < 1) {
+        grunt.log.warn('Destination not written because compiled files were empty.');
+      } else {
+        grunt.file.write(f.dest, output);
         grunt.log.writeln('File ' + f.dest.cyan + ' created.');
       }
     });

@@ -25,6 +25,12 @@ _Version `0.4.x` of this plugin is compatible with Grunt `0.4.x`. Version `0.3.x
 
 ### Options
 
+#### separator
+Type: `String`
+Default: linefeed
+
+Concatenated files will be joined on this string.
+
 #### pretty
 Type: `Boolean`
 Default: false
@@ -128,4 +134,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Wed Jan 09 2013 16:33:45.*
+*This file was generated on Thu Jan 10 2013 12:43:00.*
