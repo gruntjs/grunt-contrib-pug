@@ -12,8 +12,7 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('jade', 'Compile Jade templates into HTML.', function() {
     var options = this.options({
-      data: {},
-      separator: grunt.util.linefeed
+      data: {}
     });
 
     grunt.verbose.writeflags(options, 'Options');
@@ -21,7 +20,7 @@ module.exports = function(grunt) {
     this.files.forEach(function(f) {
       var output = f.src.map(function(file) {
         return compileJade(file, options, options.data);
-      }).join(grunt.util.normalizelf(options.separator));
+      }).join(grunt.util.normalizelf(grunt.util.linefeed));
 
       if (output.length < 1) {
         grunt.log.warn('Destination not written because compiled files were empty.');
