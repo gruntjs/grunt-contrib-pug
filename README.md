@@ -119,6 +119,7 @@ jade: {
 
 ## Release History
 
+ * 2013-01-23   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
  * 2013-01-08   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.files api.
  * 2012-10-11   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
  * 2012-09-23   v0.3.0   Options no longer accepted from global config key.
@@ -128,4 +129,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Fri Jan 11 2013 18:09:18.*
+*This file was generated on Fri Jan 25 2013 15:29:28.*
