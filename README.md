@@ -11,7 +11,7 @@ npm install grunt-contrib-jade --save-dev
 ```
 
 [grunt]: http://gruntjs.com/
-[Getting Started]: https://github.com/gruntjs/grunt/blob/devel/docs/getting_started.md
+[Getting Started]: http://gruntjs.com/getting-started
 
 
 ## Jade task
@@ -129,4 +129,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Fri Jan 25 2013 15:29:28.*
+*This file was generated on Tue Feb 05 2013 10:18:29.*
