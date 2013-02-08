@@ -43,6 +43,41 @@ module.exports = function(grunt) {
             year: '<%= grunt.template.today("yyyy") %>'
           }
         }
+      },
+
+      compile_amd: {
+        files: {
+          'tmp/amd/jade.js': ['test/fixtures/jade.jade'],
+          'tmp/amd/jade2.js': ['test/fixtures/jade2.jade'],
+          'tmp/amd/jadeInclude.js': ['test/fixtures/jadeInclude.jade'],
+          'tmp/amd/jadeTemplate.js': ['test/fixtures/jadeTemplate.jade']
+        },
+        options: {
+          client: true,
+          wrapper: "amd",
+          data: {
+            test: true,
+            year: '<%= grunt.template.today("yyyy") %>'
+          }
+        }
+      },
+
+      compile_jst: {
+        files: {
+          'tmp/jst/jade.js': ['test/fixtures/jade.jade'],
+          'tmp/jst/jade2.js': ['test/fixtures/jade2.jade'],
+          'tmp/jst/jadeInclude.js': ['test/fixtures/jadeInclude.jade'],
+          'tmp/jst/jadeTemplate.js': ['test/fixtures/jadeTemplate.jade']
+        },
+        options: {
+          client: true,
+          wrapper: "jst",
+          processName: function(str) { return str.match(/^test\/fixtures\/(.*)\.jade$/)[1]; },
+          data: {
+            test: true,
+            year: '<%= grunt.template.today("yyyy") %>'
+          }
+        }
       }
     },
 

@@ -38,10 +38,30 @@ module.exports = function(grunt) {
     var srcCode = grunt.file.read(srcFile);
 
     try {
-      return require('jade').compile(srcCode, options)(data);
+      var fn = require('jade').compile(srcCode, options);
+      if(options.client) {
+        var wrapperType = options.wrapper || 'jst';
+        var processName = options.processName || function(src) { return src.replace('.jade', ''); };
+        var wrapper = wrapTemplate[wrapperType];
+        var templateName = processName(srcFile);
+
+        return wrapper ? wrapper.call(null, fn, templateName) : fn;
+      } else {
+        return fn(data);
+      }
     } catch (e) {
       grunt.log.error(e);
       grunt.fail.warn('Jade failed to compile.');
+    }
+  };
+
+  var wrapTemplate = {
+    amd: function(fn) {
+      return 'define(["jade"], function (jade) { if(jade && jade["runtime"] !== undefined) { jade = jade.runtime; } return ' + fn.toString() + ' });';
+    },
+
+    jst: function(fn, templateName) {
+      return 'this.JST = this.JST || []; this.JST["' + templateName + '"] = ' + fn.toString();
     }
   };
 };
