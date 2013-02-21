@@ -40,7 +40,6 @@ module.exports = function(grunt) {
     var processName = options.processName || defaultProcessName;
 
     this.files.forEach(function(f) {
-      //var partials = [];
       var templates = [];
 
       f.src.filter(function(filepath) {
