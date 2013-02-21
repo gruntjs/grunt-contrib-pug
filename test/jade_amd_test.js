@@ -1,5 +1,4 @@
 var grunt = require('grunt');
-var requirejs = require('requirejs');
 
 exports.jade = {
   compile: function(test) {
@@ -7,27 +6,21 @@ exports.jade = {
 
     test.expect(4);
 
-    var data = grunt.config.get("jade").compile_amd.options.data;
-    var fn = requirejs("tmp/amd/jade.js");
-    var actual = fn(data);
-    var expected = grunt.file.read('test/expected/jade.html');
+    var actual = grunt.file.read('tmp/amd/jade.js');
+    var expected = grunt.file.read('test/expected/amd/jade.js');
+    test.equal(expected, actual, 'should compile jade templates to js');
 
-    test.equal(expected, actual, 'should compile jade templates to html');
+    actual = grunt.file.read('tmp/amd/jade2.js');
+    expected = grunt.file.read('test/expected/amd/jade2.js');
+    test.equal(expected, actual, 'should compile jade templates to js (multiple files support)');
 
-    fn = requirejs("tmp/amd/jade2.js");
-    actual = fn(data);
-    expected = grunt.file.read('test/expected/jade2.html');
-    test.equal(expected, actual, 'should compile jade templates to html (multiple files support)');
+    actual = grunt.file.read('tmp/amd/jadeInclude.js');
+    expected = grunt.file.read('test/expected/amd/jadeInclude.js');
+    test.equal(expected, actual, 'should compile jade templates to js with an include');
 
-    fn = requirejs("tmp/amd/jadeInclude.js");
-    actual = fn(data);
-    expected = grunt.file.read('test/expected/jadeInclude.html');
-    test.equal(expected, actual, 'should compile jade templates to html with an include');
-
-    fn = requirejs("tmp/amd/jadeTemplate.js");
-    actual = fn(data);
-    expected = grunt.file.read('test/expected/jadeTemplate.html');
-    test.equal(expected, actual, 'should compile jade templates to html with grunt template support');
+    actual = grunt.file.read('tmp/amd/jadeTemplate.js');
+    expected = grunt.file.read('test/expected/amd/jadeTemplate.js');
+    test.equal(expected, actual, 'should compile jade templates to js with grunt template support');
 
     test.done();
   }
