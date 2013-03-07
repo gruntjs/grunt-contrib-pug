@@ -40,10 +40,15 @@ Type: `Object`
 
 Sets the data passed to `jade` during template compilation. Any data can be passed to the template (including `grunt` templates).
 
-#### comileDebug
+#### compileDebug
 Type: `Boolean`
 
 Set `compileDebug: fase` to remove `jade` debug instructions in javascript templates.
+
+#### client
+Type: `Boolean`
+
+Compile to JS template functions for client-side use rather than directly to HTML.
 
 #### namespace
 Type: `String` `false`
@@ -178,4 +183,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Thu Mar 07 2013 08:08:26.*
+*This file was generated on Thu Mar 07 2013 08:11:31.*
