@@ -1,3 +1,8 @@
+v0.5.0:
+  date: 2013-03-07
+  changes:
+    - Allow compilation to JS functions
+    - Support JST and AMD formats
 v0.4.0:
   date: 2013-02-15
   changes:

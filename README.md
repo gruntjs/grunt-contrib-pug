@@ -166,6 +166,7 @@ jade: {
 
 ## Release History
 
+ * 2013-03-06   v0.5.0   Allow compilation to JS functions Support JST and AMD formats
  * 2013-02-14   v0.4.0   First official release for Grunt 0.4.0.
  * 2013-01-23   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
  * 2013-01-08   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.files api.
@@ -177,4 +178,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Wed Mar 06 2013 17:45:50.*
+*This file was generated on Thu Mar 07 2013 08:08:26.*
