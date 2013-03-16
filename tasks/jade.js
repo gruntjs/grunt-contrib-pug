@@ -71,6 +71,8 @@ module.exports = function(grunt) {
           // to false, the jade template will be directly returned
           if (options.client && options.amd && options.namespace === false) {
             compiled = 'return ' + compiled;
+          } else if (options.cjs) {
+            compiled = 'module.exports = ' + compiled;
           }
         } catch (e) {
           grunt.log.error(e);
