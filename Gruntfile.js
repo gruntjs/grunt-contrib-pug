@@ -78,6 +78,24 @@ module.exports = function(grunt) {
             test: true,
             year: '<%= grunt.template.today("yyyy") %>'
           }
+        },
+      },
+
+      compile_commonjs: {
+        files: {
+          'tmp/commonjs/jade.js': ['test/fixtures/jade.jade'],
+          'tmp/commonjs/jade2.js': ['test/fixtures/jade2.jade'],
+          'tmp/commonjs/jadeInclude.js': ['test/fixtures/jadeInclude.jade'],
+          'tmp/commonjs/jadeTemplate.js': ['test/fixtures/jadeTemplate.jade']
+        },
+        options: {
+          type: 'commonjs',
+          compileDebug: false,
+          processName: function(str) { return str.match(/^test\/fixtures\/(.*)\.jade$/)[1]; },
+          data: {
+            test: true,
+            year: '<%= grunt.template.today("yyyy") %>'
+          }
         }
       }
     },
