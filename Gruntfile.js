@@ -53,10 +53,9 @@ module.exports = function(grunt) {
           'tmp/amd/jadeTemplate.js': ['test/fixtures/jadeTemplate.jade']
         },
         options: {
-          client: true,
-          amd: true,
-          namespace: false,
+          type: 'amd',
           compileDebug: false,
+          namespace: false,
           data: {
             test: true,
             year: '<%= grunt.template.today("yyyy") %>'
@@ -72,7 +71,7 @@ module.exports = function(grunt) {
           'tmp/jst/jadeTemplate.js': ['test/fixtures/jadeTemplate.jade']
         },
         options: {
-          client: true,
+          type: 'js',
           compileDebug: false,
           processName: function(str) { return str.match(/^test\/fixtures\/(.*)\.jade$/)[1]; },
           data: {

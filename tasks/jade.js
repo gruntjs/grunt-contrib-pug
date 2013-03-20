@@ -21,8 +21,8 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('jade', 'Compile jade templates.', function() {
     var options = this.options({
       namespace: 'JST',
-      separator: grunt.util.linefeed + grunt.util.linefeed,
-      amd: false
+      type: 'html',
+      separator: grunt.util.linefeed + grunt.util.linefeed
     });
     grunt.verbose.writeflags(options, 'Options');
 
@@ -56,28 +56,31 @@ module.exports = function(grunt) {
         var compiled, filename;
         filename = processName(filepath);
 
-        options = grunt.util._.extend(options, { filename: filepath });
+        options = grunt.util._.extend(options, {
+          filename: filepath,
+          client: options.type !== 'html' ? true : false
+        });
 
         try {
           compiled = require('jade').compile(src, options);
-          // if in client mode, return function source
-          if (options.client) {
-            compiled = compiled.toString();
-          } else {
+
+          if (options.type === 'html') {
             compiled = compiled(data);
           }
-          
-          // if configured for amd and the namespace has been explicitly set
-          // to false, the jade template will be directly returned
-          if (options.client && options.amd && options.namespace === false) {
+          // if in client mode, return function source
+          else if (options.type === 'client') {
+            compiled = compiled.toString();
+          } else if (options.type === 'amd') {
             compiled = 'return ' + compiled;
+          } else if (options.type === 'commonjs' && options.namespace === false) {
+            compiled = 'module.exports = ' + compiled;
           }
         } catch (e) {
           grunt.log.error(e);
           grunt.fail.warn('Jade failed to compile '+filepath+'.');
         }
 
-        if (options.client && options.namespace !== false) {
+        if (options.type === 'js' || options.type === 'commonjs' && options.namespace !== false) {
           templates.push(nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';');
         } else {
           templates.push(compiled);
@@ -88,10 +91,10 @@ module.exports = function(grunt) {
       if (output.length < 1) {
         grunt.log.warn('Destination not written because compiled files were empty.');
       } else {
-        if (options.client && options.namespace !== false) {
+        if (options.type !== 'html' && options.namespace !== false) {
           output.unshift(nsInfo.declaration);
 
-          if (options.node) {
+          if (options.type === 'commonjs') {
             output.unshift('var jade = jade || require(\'jade\').runtime;');
 
             var nodeExport = 'if (typeof exports === \'object\' && exports) {';
@@ -101,7 +104,7 @@ module.exports = function(grunt) {
           }
         }
 
-        if (options.amd) {
+        if (options.type === 'amd') {
           // Wrap the file in an AMD define fn.
           output.unshift("define(['jade'], function(jade) { if(jade && jade['runtime'] !== undefined) { jade = jade.runtime; }");
           if (options.namespace !== false) {
