@@ -1,6 +1,6 @@
 # grunt-contrib-jade [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-jade)
 
-> Compile Jade files to HTML.
+> Compile Jade templates.
 
 
 
@@ -47,6 +47,7 @@ Set `compileDebug: fase` to remove `jade` debug instructions in javascript templ
 
 #### client
 Type: `Boolean`
+Default: `false`
 
 Compile to JS template functions for client-side use rather than directly to HTML.
 
@@ -183,4 +184,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Thu Mar 07 2013 08:11:31.*
+*This file was generated on Thu Mar 21 2013 10:21:28.*
