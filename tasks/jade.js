@@ -70,20 +70,14 @@ module.exports = function(grunt) {
           // if in client mode, return function source
           else if (options.type === 'client') {
             compiled = compiled.toString();
-          } else if (options.type === 'amd') {
-            compiled = 'return ' + compiled;
-          } else if (options.type === 'commonjs' && options.namespace === false) {
-            compiled = 'module.exports = ' + compiled;
           }
+
+          compiled = helpers.formatForType(compiled, options, nsInfo && nsInfo.namespace, filename);
+
+          templates.push(compiled);
         } catch (e) {
           grunt.log.error(e);
           grunt.fail.warn('Jade failed to compile '+filepath+'.');
-        }
-
-        if (options.type === 'js' || options.type === 'commonjs' && options.namespace !== false) {
-          templates.push(nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';');
-        } else {
-          templates.push(compiled);
         }
       });
 
