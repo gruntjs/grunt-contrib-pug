@@ -64,15 +64,12 @@ module.exports = function(grunt) {
         try {
           compiled = require('jade').compile(src, options);
 
+          // process template if type is html
           if (options.type === 'html') {
             compiled = compiled(data);
           }
-          // if in client mode, return function source
-          else if (options.type === 'client') {
-            compiled = compiled.toString();
-          }
 
-          compiled = helpers.formatForType(compiled, options, nsInfo && nsInfo.namespace, filename);
+          compiled = helpers.formatForType(compiled, options.type, nsInfo && nsInfo.namespace, filename);
 
           templates.push(compiled);
         } catch (e) {
