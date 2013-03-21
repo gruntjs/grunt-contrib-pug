@@ -1,30 +1,30 @@
 # Options
 
 ## pretty
-Type: `boolean`  
+Type: `Boolean`  
 Default: **false**
 
 Output indented HTML.
 
 ## data
-Type: `object`
+Type: `Object`
 
 Sets the data passed to Jade during template compilation. Any data can be passed to the template (including grunt templates).
 
 ## compileDebug
-Type: `boolean`  
+Type: `Boolean`  
 Default: **true**
 
 Add Jade debug instructions to generated JS templates.
 
 ## client
-Type: `boolean`  
+Type: `Boolean`  
 Default: **false**
 
 Compile to JS template functions for client-side use rather than directly to HTML.
 
 ## namespace
-Type: `string`, `boolean`  
+Type: `String`, `Boolean`  
 Default: **JST**
 
 The namespace in which the precompiled templates will be assigned. Use dot notation (*e.g.* `App.Templates`) for nested namespaces or `false` for no namespace wrapping.  
@@ -33,7 +33,7 @@ When set to `false` with **amd** option set to `true`, the templates will be ret
 
 
 ## amd
-Type: `boolean`  
+Type: `Boolean`  
 Default: **false**
 
 Wraps the output file with an AMD define function and returns the compiled template namespace unless namespace has been explicitly set to false in which case the template function will be returned directly.
@@ -46,7 +46,7 @@ define(function() {
 ```
 
 ## processName
-Type: `function`
+Type: `Function`
 
 This option accepts a function which takes one argument (the template filepath) and returns a string which will be used as the key for the precompiled template object.
 
