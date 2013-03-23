@@ -50,6 +50,8 @@ Type: `Function`
 
 This option accepts a function which takes one argument (the template filepath) and returns a string which will be used as the key for the precompiled template object.
 
+By default filepaths will be processed to a JS-friendly camelCase equivalent. (*e.g* `jade/example-file.jade` becomes `exampleFile`)
+
 **Example**
 Store all template on the default JST namespace in capital letters.
 
