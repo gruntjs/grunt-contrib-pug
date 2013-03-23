@@ -74,7 +74,6 @@ module.exports = function(grunt) {
         options: {
           client: true,
           compileDebug: false,
-          processName: function(str) { return str.match(/^test\/fixtures\/(.*)\.jade$/)[1]; },
           data: {
             test: true,
             year: '<%= grunt.template.today("yyyy") %>'

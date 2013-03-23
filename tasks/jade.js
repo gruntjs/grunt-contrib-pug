@@ -16,7 +16,15 @@ module.exports = function(grunt) {
   var defaultProcessContent = function(content) { return content; };
 
   // filename conversion for templates
-  var defaultProcessName = function(name) { return name.replace('.jade', ''); };
+  var defaultProcessName = function(name) {
+    // Remove filepath and extension (_fe/jade/cool.jade -> cool)
+    name = name.match(/([\w\.\-]*)(?=\.jade)/)[0];
+
+    // Remove "." "-" "_" characters and convert to camelCase
+    name = name.replace(/[\-\.\_]([\w])/g, function (g) { return g[1].toUpperCase(); });
+
+    return name;
+  };
 
   grunt.registerMultiTask('jade', 'Compile jade templates.', function() {
     var options = this.options({
@@ -66,7 +74,7 @@ module.exports = function(grunt) {
           } else {
             compiled = compiled(data);
           }
-          
+
           // if configured for amd and the namespace has been explicitly set
           // to false, the jade template will be directly returned
           if (options.client && options.amd && options.namespace === false) {
