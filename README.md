@@ -74,6 +74,13 @@ define(function() {
 });
 ```
 
+#### spawnProcesses
+Type: `number`
+Default: **0**
+
+If greater than **1**, divides the Jade compilation into separate spawned tasks that execute asynchronously.
+
+
 #### processName
 Type: `Function`
 
@@ -185,4 +192,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Thu Mar 21 2013 18:55:34.*
+*This file was generated on Tue Apr 02 2013 16:57:55.*

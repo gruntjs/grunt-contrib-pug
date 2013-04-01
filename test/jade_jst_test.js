@@ -4,7 +4,7 @@ exports.jade = {
   compile: function(test) {
     'use strict';
 
-    test.expect(4);
+    test.expect(5);
 
     var actual = grunt.file.read('tmp/jst/jade.js');
     var expected = grunt.file.read('test/expected/jst/jade.js');
@@ -13,6 +13,10 @@ exports.jade = {
     actual = grunt.file.read('tmp/jst/jade2.js');
     expected = grunt.file.read('test/expected/jst/jade2.js');
     test.equal(expected, actual, 'should compile jade templates to JST template (multiple files support)');
+
+    actual = grunt.file.read('tmp/jst/jadeCombine.js');
+    expected = grunt.file.read('test/expected/jst/jadeCombine.js');
+    test.equal(expected, actual, 'should compile jade templates to JST (multiple files support)');
 
     actual = grunt.file.read('tmp/jst/jadeInclude.js');
     expected = grunt.file.read('test/expected/jst/jadeInclude.js');
