@@ -18,10 +18,66 @@ module.exports = function(grunt) {
   // filename conversion for templates
   var defaultProcessName = function(name) { return name.replace('.jade', ''); };
 
+  // If running on multiple processes, split render tasks into even groups.
+  var jadeSpawn = function(){
+
+    var currentTask = grunt.task.current,
+        done = currentTask.async(),
+        files = currentTask.files,
+        spawnCount = currentTask.data.options.spawnProcesses,
+        filesPerProcess = Math.floor(files.length / spawnCount),
+        filePosition = 0,
+        processPosition = 0;
+
+    if ( files.length < spawnCount ) {
+      spawnCount = files.length;
+      filesPerProcess = 1;
+    }
+
+    var spawnDone = function(error, result, code) {
+
+      if (error) {
+        grunt.fail.warn(result.stdout);
+      }
+
+      // Get stdout of spawned process and find the pertinent lines for CLI success feedback.
+      grunt.log.writeln(result.stdout.split('\n').filter(function(resultLine){
+        resultLine = resultLine.toLowerCase();
+        return (resultLine.search('file') > -1 && resultLine.search('created') > -1);
+      }).join('\n'));
+
+      processPosition++;
+      if ( processPosition === spawnCount * 1 ) {
+        done();
+      }
+    };
+
+    for ( var i = 0; i < spawnCount; i++ ) {
+
+      var childTasks = [],
+          startPoint = filePosition,
+          endOffset = ( i < files.length % spawnCount ) ? 1 : 0;
+
+      for ( var j = startPoint; j < startPoint + filesPerProcess + endOffset; j++ ) {
+        childTasks.push('jade-single:' + files[j].src.join(',') + ":" + currentTask.target);
+        filePosition++;
+      }
+
+      // If there are any current options, extend them onto the new process list. (--deploy, etc.)
+      childTasks = childTasks.concat(grunt.option.flags());
+
+      grunt.util.spawn({
+        grunt: true,
+        args: childTasks
+      }, spawnDone);
+    }
+  };
+
   grunt.registerMultiTask('jade', 'Compile jade templates.', function() {
     var options = this.options({
       namespace: 'JST',
       separator: grunt.util.linefeed + grunt.util.linefeed,
+      spawnProcesses: 0,
       amd: false
     });
     grunt.verbose.writeflags(options, 'Options');
@@ -30,6 +86,11 @@ module.exports = function(grunt) {
     delete options.data;
 
     var nsInfo;
+
+    if (options.spawnProcesses > 1 && this.files.length > 1) {
+      jadeSpawn();
+      return;
+    }
 
     if(options.namespace !== false){
       nsInfo = helpers.getNamespaceDeclaration(options.namespace);
@@ -66,7 +127,7 @@ module.exports = function(grunt) {
           } else {
             compiled = compiled(data);
           }
-          
+
           // if configured for amd and the namespace has been explicitly set
           // to false, the jade template will be directly returned
           if (options.client && options.amd && options.namespace === false) {
@@ -119,4 +180,28 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.registerTask('jade-single', function(filePaths, parentTask){
+
+    filePaths = filePaths.split(',');
+
+    var files = grunt.task.normalizeMultiTaskFiles(grunt.config('jade.' + parentTask)),
+        options = grunt.config('jade.' + parentTask).options,
+        buildFiles = [];
+
+    // Find the sources in the parent's normalized file list that match filePaths.
+    files.forEach(function(f){
+      if ( _.intersection(filePaths, f.src).length === filePaths.length && f.src.length === filePaths.length) {
+        buildFiles.push(f);
+      }
+    });
+
+    delete options.spawnProcesses;
+
+    grunt.config('jade.jadeSingle', {
+      options: options,
+      files: buildFiles
+    });
+
+    grunt.task.run('jade:jadeSingle');
+  });
 };

@@ -34,6 +34,7 @@ module.exports = function(grunt) {
         files: {
           'tmp/jade.html': ['test/fixtures/jade.jade'],
           'tmp/jade2.html': ['test/fixtures/jade2.jade'],
+          'tmp/jadeCombine.html': ['test/fixtures/jade.jade', 'test/fixtures/jade2.jade'],
           'tmp/jadeInclude.html': ['test/fixtures/jadeInclude.jade'],
           'tmp/jadeTemplate.html': ['test/fixtures/jadeTemplate.jade']
         },
@@ -42,6 +43,38 @@ module.exports = function(grunt) {
             test: true,
             year: '<%= grunt.template.today("yyyy") %>'
           }
+        }
+      },
+
+      compile_multiprocess: {
+        files: {
+          'tmp/multiproc/jade.html': ['test/fixtures/jade.jade'],
+          'tmp/multiproc/jade2.html': ['test/fixtures/jade2.jade'],
+          'tmp/multiproc/jadeCombine.html': ['test/fixtures/jade.jade', 'test/fixtures/jade2.jade'],
+          'tmp/multiproc/jadeGlobbingCombine.html': ['test/fixtures/jadeGlobbing*.jade'],
+          'tmp/multiproc/jadeInclude.html': ['test/fixtures/jadeInclude.jade'],
+          'tmp/multiproc/jadeTemplate.html': ['test/fixtures/jadeTemplate.jade']
+        },
+        options: {
+          data: {
+            test: true,
+            year: '<%= grunt.template.today("yyyy") %>'
+          },
+          spawnProcesses: 3
+        }
+      },
+
+      compile_multiprocess_file_mapping: {
+        files: [
+          {expand:true, cwd:'test/fixtures/', src:['jade.jade'], dest:'tmp/multiproc_mapping/', ext:'.html', flatten:true},
+          {expand:true, cwd:'test/fixtures/', src:['jadeGlobbing*.jade'], dest:'tmp/multiproc_mapping/', ext:'.html', flatten:true}
+        ],
+        options: {
+          data: {
+            test: true,
+            year: '<%= grunt.template.today("yyyy") %>'
+          },
+          spawnProcesses: 2
         }
       },
 
@@ -68,6 +101,7 @@ module.exports = function(grunt) {
         files: {
           'tmp/jst/jade.js': ['test/fixtures/jade.jade'],
           'tmp/jst/jade2.js': ['test/fixtures/jade2.jade'],
+          'tmp/jst/jadeCombine.js': ['test/fixtures/jade.jade', 'test/fixtures/jade2.jade'],
           'tmp/jst/jadeInclude.js': ['test/fixtures/jadeInclude.jade'],
           'tmp/jst/jadeTemplate.js': ['test/fixtures/jadeTemplate.jade']
         },
