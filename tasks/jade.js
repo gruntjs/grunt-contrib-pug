@@ -64,7 +64,8 @@ module.exports = function(grunt) {
           if (options.client) {
             compiled = compiled.toString();
           } else {
-            compiled = compiled(data);
+            // if data is function, bind to f.orig, passing f.dest and f.src
+            compiled = compiled(_.isFunction(data) ? data.call(f.orig, f.dest, f.src) : data);
           }
           
           // if configured for amd and the namespace has been explicitly set

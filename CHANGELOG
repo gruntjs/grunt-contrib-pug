@@ -1,3 +1,7 @@
+v0.5.1:
+  date: 2013-05-06
+  changes:
+    - Allow options.data to be a function
 v0.5.0:
   date: 2013-03-07
   changes:

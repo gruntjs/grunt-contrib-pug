@@ -40,6 +40,20 @@ Type: `Object`
 
 Sets the data passed to Jade during template compilation. Any data can be passed to the template (including grunt templates).
 
+This value also might be a function taking source and destination path as arguments and returning a data object. Within the function, `this` is bound to the file configuration object.
+
+```js
+options: {
+  data: function(dest, src) {
+    return {
+      from: src,
+      to: dest
+    };
+  }
+}
+```
+
+
 #### compileDebug
 Type: `Boolean`
 Default: **true**
@@ -173,6 +187,7 @@ jade: {
 
 ## Release History
 
+ * 2013-05-06   v0.5.1   Allow options.data to be a function
  * 2013-03-07   v0.5.0   Allow compilation to JS functions Support JST and AMD formats
  * 2013-02-15   v0.4.0   First official release for Grunt 0.4.0.
  * 2013-01-24   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
@@ -185,4 +200,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Mon May 06 2013 22:28:24.*
+*This file was generated on Mon May 06 2013 22:39:17.*
