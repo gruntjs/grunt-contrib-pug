@@ -4,7 +4,7 @@ exports.jade = {
   compile: function(test) {
     'use strict';
 
-    test.expect(4);
+    test.expect(5);
 
     var actual = grunt.file.read('tmp/jade.html');
     var expected = grunt.file.read('test/expected/jade.html');
@@ -21,6 +21,10 @@ exports.jade = {
     actual = grunt.file.read('tmp/jadeTemplate.html');
     expected = grunt.file.read('test/expected/jadeTemplate.html');
     test.equal(expected, actual, 'should compile jade templates to html with grunt template support');
+
+    actual = grunt.file.read('tmp/jadeDynamicData.html');
+    expected = grunt.file.read('test/expected/jadeDynamicData.html');
+    test.equal(expected, actual, 'should allow options.data to be a function');
 
     test.done();
   }

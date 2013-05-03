@@ -11,6 +11,20 @@ Type: `Object`
 
 Sets the data passed to Jade during template compilation. Any data can be passed to the template (including grunt templates).
 
+This value also might be a function taking source and destination path as arguments and returning a data object. Within the function, `this` is bound to the file configuration object.
+
+```js
+options: {
+  data: function(dest, src) {
+    return {
+      from: src,
+      to: dest
+    };
+  }
+}
+```
+
+
 ## compileDebug
 Type: `Boolean`
 Default: **true**
