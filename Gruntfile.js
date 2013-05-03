@@ -90,7 +90,7 @@ module.exports = function(grunt) {
             return {
               dest: dest,
               src: src
-            }
+            };
           }
         }
       }
