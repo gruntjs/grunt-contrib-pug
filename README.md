@@ -1,4 +1,4 @@
-# grunt-contrib-jade [![Build Status](https://secure.travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](http://travis-ci.org/gruntjs/grunt-contrib-jade)
+# grunt-contrib-jade [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade)
 
 > Compile Jade templates.
 
@@ -39,6 +39,20 @@ Output indented HTML.
 Type: `Object`
 
 Sets the data passed to Jade during template compilation. Any data can be passed to the template (including grunt templates).
+
+This value also might be a function taking source and destination path as arguments and returning a data object. Within the function, `this` is bound to the file configuration object.
+
+```js
+options: {
+  data: function(dest, src) {
+    return {
+      from: src,
+      to: dest
+    };
+  }
+}
+```
+
 
 #### compileDebug
 Type: `Boolean`
@@ -173,16 +187,16 @@ jade: {
 
 ## Release History
 
- * 2013-03-06   v0.5.0   Allow compilation to JS functions Support JST and AMD formats
- * 2013-02-14   v0.4.0   First official release for Grunt 0.4.0.
- * 2013-01-23   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
- * 2013-01-08   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.files api.
- * 2012-10-11   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
- * 2012-09-23   v0.3.0   Options no longer accepted from global config key.
- * 2012-09-09   v0.2.0   Refactored from grunt-contrib into individual repo.
+ * 2013-03-07   v0.5.0   Allow compilation to JS functions Support JST and AMD formats
+ * 2013-02-15   v0.4.0   First official release for Grunt 0.4.0.
+ * 2013-01-24   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
+ * 2013-01-09   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.files api.
+ * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
+ * 2012-09-24   v0.3.0   Options no longer accepted from global config key.
+ * 2012-09-10   v0.2.0   Refactored from grunt-contrib into individual repo.
 
 ---
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Thu Mar 21 2013 18:55:34.*
+*This file was generated on Fri May 03 2013 11:03:48.*
