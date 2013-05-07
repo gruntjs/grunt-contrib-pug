@@ -28,7 +28,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "jade": "~0.27.2",
+    "jade": "~0.30.0",
     "grunt-lib-contrib": "~0.5.1"
   },
   "devDependencies": {
