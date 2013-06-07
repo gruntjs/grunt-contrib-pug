@@ -2,10 +2,7 @@ define(['jade'], function(jade) { if(jade && jade['runtime'] !== undefined) { ja
 
 return function anonymous(locals) {
 var buf = [];
-with (locals || {}) {
-buf.push("<div>" + (jade.escape(null == (jade.interp = year) ? "" : jade.interp)) + "</div>");
-}
-return buf.join("");
+var locals_ = (locals || {}),year = locals_.year;buf.push("<div>" + (jade.escape(null == (jade.interp = year) ? "" : jade.interp)) + "</div>");;return buf.join("");
 }
 
 });

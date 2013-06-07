@@ -1,3 +1,7 @@
+v0.7.0:
+  date: 2013-06-06
+  changes:
+    - Bump jade version / fix tests
 v0.6.0:
   date: 2013-05-15
   changes:
