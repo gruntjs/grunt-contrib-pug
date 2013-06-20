@@ -75,7 +75,6 @@ module.exports = function(grunt) {
           }
         } catch (e) {
           grunt.log.error(e);
-          grunt.fail.warn('Jade failed to compile '+filepath+'.');
         }
 
         if (options.client && options.namespace !== false) {
