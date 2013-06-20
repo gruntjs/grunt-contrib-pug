@@ -81,8 +81,9 @@ module.exports = function(grunt) {
             compiled = 'return ' + compiled;
           }
         } catch (e) {
+          grunt.log.warn('Jade failed to compile ' + filepath + '.');
           grunt.log.error(e);
-          grunt.fail.warn('Jade failed to compile '+filepath+'.');
+          return false;
         }
 
         if (options.client && options.namespace !== false) {
