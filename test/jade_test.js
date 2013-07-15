@@ -4,11 +4,19 @@ exports.jade = {
   compile: function(test) {
     'use strict';
 
-    test.expect(5);
+    test.expect(7);
 
     var actual = grunt.file.read('tmp/jade.html');
     var expected = grunt.file.read('test/expected/jade.html');
     test.equal(expected, actual, 'should compile jade templates to html');
+
+    actual = grunt.file.read('tmp/folders/jade.html');
+    expected = grunt.file.read('test/expected/folders/jade.html');
+    test.equal(expected, actual, 'should compile jade templates to html (folder support)');
+
+    actual = grunt.file.read('tmp/folders/jade.template');
+    expected = grunt.file.read('test/expected/folders/jade.template');
+    test.equal(expected, actual, 'should compile jade templates to options.extension');
 
     actual = grunt.file.read('tmp/jade2.html');
     expected = grunt.file.read('test/expected/jade2.html');
