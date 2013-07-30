@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-jade",
   "description": "Compile Jade templates.",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "homepage": "https://github.com/gruntjs/grunt-contrib-jade",
   "author": {
     "name": "Grunt Team",

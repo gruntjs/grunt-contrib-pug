@@ -5,7 +5,7 @@
 
 
 ## Getting Started
-This plugin requires Grunt `~0.4.0`
+This plugin requires Grunt `~0.4.1`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -187,6 +187,7 @@ jade: {
 
 ## Release History
 
+ * 2013-07-29   v0.8.0   Bump jade version to 0.34.1
  * 2013-06-06   v0.7.0   Bump jade version / fix tests
  * 2013-05-15   v0.6.0   Bump jade version / fix tests
  * 2013-05-06   v0.5.1   Allow options.data to be a function
@@ -202,4 +203,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Thu Jun 06 2013 22:52:29.*
+*This file was generated on Mon Jul 29 2013 17:37:55.*
