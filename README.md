@@ -53,6 +53,41 @@ options: {
 }
 ```
 
+#### Filters
+
+If you want to use filters you have two ways to do it. Firstly, you have to declare `filters` field of `options` object and then write filters inline in your Gruntfile.js or define filters in separate file and export it.
+
+##### Inline filters
+
+Gruntfile:
+
+```js
+options: {
+  filters: {
+    some: function(block) {},
+    another: function(block) {}
+  }
+}
+```
+
+##### Exported filters
+
+Gruntfile:
+
+```js
+options: {
+  filters: require('./filters.js')
+}
+```
+
+filters.js
+
+```js
+var jadefilters = module.exports = {};
+jadefilters.some = function(block) {};
+jadefilters.another = function(block) {};
+```
+
 
 #### compileDebug
 Type: `Boolean`

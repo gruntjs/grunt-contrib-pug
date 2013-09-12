@@ -59,7 +59,13 @@ module.exports = function(grunt) {
         options = grunt.util._.extend(options, { filename: filepath });
 
         try {
-          compiled = require('jade').compile(src, options);
+          var jade = require('jade');
+          if (options.filters) {
+            Object.keys(options.filters).forEach(function(filter) {
+              jade.filters[filter] = options.filters[filter];
+            });
+          }
+          compiled = jade.compile(src, options);
           // if in client mode, return function source
           if (options.client) {
             compiled = compiled.toString();
