@@ -53,6 +53,32 @@ options: {
 }
 ```
 
+##### Custom filters
+
+If you want to use custom filters with grunt-contrib-jade you should pass `filters` array of files with your filters into `data` object, like this:
+
+```js
+options: {
+  data: function(dest, src) {
+    return {
+      "filters": [
+        "filters.jade"
+      ]
+    };
+  },
+}
+```
+
+and format your "filters.jade" to be like normal jade filter implementation:
+
+```js
+var jade = require('jade');
+
+jade.filters.some = function(block) {
+  return '<div class="some">' + jade.render(block) +'</div>';
+};
+```
+
 
 #### compileDebug
 Type: `Boolean`
