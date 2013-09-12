@@ -38,6 +38,7 @@ module.exports = function(grunt) {
     // assign transformation functions
     var processContent = options.processContent || defaultProcessContent;
     var processName = options.processName || defaultProcessName;
+    var filters = this.data.options.data().filters;
 
     this.files.forEach(function(f) {
       var templates = [];
@@ -59,7 +60,11 @@ module.exports = function(grunt) {
         options = grunt.util._.extend(options, { filename: filepath });
 
         try {
-          compiled = require('jade').compile(src, options);
+          var jade = require('jade');
+          for (var i = filters.length - 1; i >= 0; i--) {
+            eval(fs.readFileSync(filters[i], {encoding: 'utf8'}));
+          }
+          compiled = jade.compile(src, options);
           // if in client mode, return function source
           if (options.client) {
             compiled = compiled.toString();
