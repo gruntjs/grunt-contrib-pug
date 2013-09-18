@@ -86,6 +86,7 @@ module.exports = function(grunt) {
           'tmp/jadeDynamicData.html': ['test/fixtures/jadeDynamicData.jade']
         },
         options: {
+          compileDebug: false,
           data: function(dest, src) {
             return {
               dest: dest,
@@ -93,8 +94,40 @@ module.exports = function(grunt) {
             };
           }
         }
-      }
+      },
+      compile_inline_filters: {
+        files: {
+          'tmp/inlineFilters.html': ['test/fixtures/jadeFilters.jade']
+        },
+        options: {
+          filters: {
+            some: function(block) {return 'some: ' + block;},
+            another: function(block) {return 'another: ' + block;}
+          },
+          data: function(dest, src) {
+            return {
+              dest: dest,
+              src: src
+            };
+          }
+        }
+      },
+      compile_exported_filters: {
+        files: {
+          'tmp/exportedFilters.html': ['test/fixtures/jadeFilters.jade']
+        },
+        options: {
+          filters: require('./test/fixtures/inc/filters.js'),
+          data: function(dest, src) {
+            return {
+              dest: dest,
+              src: src
+            };
+          }
+        }
+      },
     },
+
 
     // Unit tests.
     nodeunit: {
