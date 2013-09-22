@@ -60,8 +60,6 @@ module.exports = function(grunt) {
 
         try {
           var jade = require('jade');
-          
-
           if (options.filters) {
             // have custom filters
             Object.keys(options.filters).forEach(function(filter) {
