@@ -126,6 +126,17 @@ module.exports = function(grunt) {
           }
         }
       },
+      compile_advanced_filters: {
+        files: {
+          'tmp/jadeAdvancedFilters.html': ['test/fixtures/jadeAdvancedFilters.jade']
+        },
+        options: {
+          filters: require('./test/fixtures/inc/advancedFilters.js'),
+          data: function(dest, src) {
+            return require('./test/fixtures/inc/locals.json');
+          }
+        }
+      },
     },
 
 
