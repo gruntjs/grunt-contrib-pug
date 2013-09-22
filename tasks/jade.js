@@ -62,15 +62,13 @@ module.exports = function(grunt) {
           var jade = require('jade');
           if (options.filters) {
             // have custom filters
+            var filters_context = { jade: jade };
+            if (_.isFunction(data)) {
+              // context depends on existence data (locals)
+              filters_context.locals = data.call(f.orig, f.dest, f.src);
+            }
             Object.keys(options.filters).forEach(function(filter) {
-              if (typeof data === 'function') {
-                // have custom options
-                jade.filters[filter] = options.filters[filter].bind({jade: jade, locals: data()});
-              } else {
-                // have no custom options
-                jade.filters[filter] = options.filters[filter].bind({jade: jade });
-              }
-
+              jade.filters[filter] = options.filters[filter].bind(filters_context);
             });
           }
           compiled = jade.compile(src, options);
