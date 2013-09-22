@@ -60,9 +60,19 @@ module.exports = function(grunt) {
 
         try {
           var jade = require('jade');
+
+
           if (options.filters) {
+            // have custom filters
             Object.keys(options.filters).forEach(function(filter) {
-              jade.filters[filter] = options.filters[filter];
+              if (typeof data === 'function') {
+                // have custom options
+                jade.filters[filter] = options.filters[filter].bind({jade: jade, locals: data()});
+              } else {
+                // have no custom options
+                jade.filters[filter] = options.filters[filter].bind({jade: jade });
+              }
+
             });
           }
           compiled = jade.compile(src, options);
