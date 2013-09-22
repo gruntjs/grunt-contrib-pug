@@ -100,10 +100,9 @@ module.exports = function(grunt) {
           'tmp/inlineFilters.html': ['test/fixtures/jadeFilters.jade']
         },
         options: {
-          compileDebug: false,
           filters: {
-            some: function(block) {return '<some>'+block+'</some>';},
-            another: function(block) {return '<another>'+block+'</another>';}
+            some: function(block) {return 'some: ' + block;},
+            another: function(block) {return 'another: ' + block;}
           },
           data: function(dest, src) {
             return {
