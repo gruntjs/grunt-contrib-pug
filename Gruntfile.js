@@ -101,8 +101,12 @@ module.exports = function(grunt) {
         },
         options: {
           filters: {
-            some: function(block) {return 'some: ' + block;},
-            another: function(block) {return 'another: ' + block;}
+            some: function(block) {
+              return 'some: ' + block;
+            },
+            another: function(block) {
+              return 'another: ' + block;
+            }
           },
           data: function(dest, src) {
             return {

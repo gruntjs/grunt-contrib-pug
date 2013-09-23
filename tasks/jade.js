@@ -59,16 +59,11 @@ module.exports = function(grunt) {
         options = grunt.util._.extend(options, { filename: filepath });
 
         try {
-          var jade = require('jade');
+          var jade = f.orig.jade = require('jade');
+          f.orig.data = _.isFunction(data) ? data.call(f.orig, f.dest, f.src) : data;
           if (options.filters) {
-            // have custom filters
-            var filters_context = { jade: jade };
-            if (_.isFunction(data)) {
-              // context depends on existence data (locals)
-              filters_context.locals = data.call(f.orig, f.dest, f.src);
-            }
             Object.keys(options.filters).forEach(function(filter) {
-              jade.filters[filter] = options.filters[filter].bind(filters_context);
+              jade.filters[filter] = options.filters[filter].bind(f.orig);
             });
           }
           compiled = jade.compile(src, options);
@@ -77,7 +72,7 @@ module.exports = function(grunt) {
             compiled = compiled.toString();
           } else {
             // if data is function, bind to f.orig, passing f.dest and f.src
-            compiled = compiled(_.isFunction(data) ? data.call(f.orig, f.dest, f.src) : data);
+            compiled = compiled(f.orig.data);
           }
           
           // if configured for amd and the namespace has been explicitly set

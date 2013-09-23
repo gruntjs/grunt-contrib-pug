@@ -24,6 +24,51 @@ options: {
 }
 ```
 
+or you can have options from a required JSON file:
+
+```js
+options: {
+  data: function(dest, src) {
+    // Return an object of data to pass to templates
+    return require('./locals.json');
+  }
+}
+```
+
+## filters
+Type: `Object`
+
+If you want to use filters you have two ways to do it. First you can write your filters inline within your Gruntfile.js or define filters in separate file and export it.
+
+Filters are given a context with the `jade` instance and local variables: `{jade: jade, data: data}`, where `jade` is global jade instance and `data` is options passed to `options.data`. You can use `this.jade.render()` inside your filters to render the content of a block and locals as `#{variable}` from your data.
+
+### Inline filters
+
+*Gruntfile.js:*
+```js
+options: {
+  filters: {
+    some: function(block) {},
+    another: function(block) {}
+  }
+}
+```
+
+### Exported filters
+
+*Gruntfile.js:*
+```js
+options: {
+  filters: require('./filters.js')
+}
+```
+
+*filters.js:*
+```js
+var jadefilters = module.exports = {};
+jadefilters.some = function(block) {};
+jadefilters.another = function(block) {};
+```
 
 ## compileDebug
 Type: `Boolean`
