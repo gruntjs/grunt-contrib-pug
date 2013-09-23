@@ -59,18 +59,13 @@ module.exports = function(grunt) {
         options = grunt.util._.extend(options, { filename: filepath });
 
         try {
-          var jade = require('jade');
+          var jade = f.orig.jade = require('jade');
+          f.orig.locals = _.isFunction(data) ? data.call(f.orig, f.dest, f.src) : data;
           if (options.filters) {
-            // have custom filters
-            var filters_context = { jade: jade };
-            if (_.isFunction(data)) {
-              // context depends on existence data (locals)
-              filters_context.locals = data.call(f.orig, f.dest, f.src);
-            }
             Object.keys(options.filters).forEach(function(filter) {
-              jade.filters[filter] = options.filters[filter].bind(filters_context);
+              jade.filters[filter] = options.filters[filter].bind(f.orig);
             });
-          }
+          }          
           compiled = jade.compile(src, options);
           // if in client mode, return function source
           if (options.client) {
