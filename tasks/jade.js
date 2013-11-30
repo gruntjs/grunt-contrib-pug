@@ -24,7 +24,6 @@ module.exports = function(grunt) {
       separator: grunt.util.linefeed + grunt.util.linefeed,
       amd: false
     });
-    grunt.verbose.writeflags(options, 'Options');
 
     var data = options.data;
     delete options.data;
