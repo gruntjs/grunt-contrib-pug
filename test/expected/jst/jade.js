@@ -1,7 +1,8 @@
 this["JST"] = this["JST"] || {};
 
-this["JST"]["jade"] = function anonymous(locals) {
+this["JST"]["jade"] = function template(locals) {
 var buf = [];
+var jade_mixins = {};
 var locals_ = (locals || {}),test = locals_.test;buf.push("<div id=\"test\" class=\"test\"><span id=\"data\">data</span>");
 if ( test)
 {
