@@ -68,10 +68,10 @@ module.exports = function(grunt) {
           compiled = jade.compile(src, options);
           // if in client mode, return function source
           if (options.client) {
-            compiled = compiled.toString();
+            compiled = jade.compileClient(src, options).toString();
           } else {
             // if data is function, bind to f.orig, passing f.dest and f.src
-            compiled = compiled(f.orig.data);
+            compiled = jade.compile(src, options)(f.orig.data);
           }
           
           // if configured for amd and the namespace has been explicitly set

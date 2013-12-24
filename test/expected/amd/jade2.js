@@ -1,7 +1,8 @@
 define(['jade'], function(jade) { if(jade && jade['runtime'] !== undefined) { jade = jade.runtime; }
 
-return function anonymous(locals) {
+return function template(locals) {
 var buf = [];
+var jade_mixins = {};
 var locals_ = (locals || {}),test = locals_.test;buf.push("<div id=\"test\" class=\"test\"><span id=\"data\">data</span>");
 if ( test)
 {
