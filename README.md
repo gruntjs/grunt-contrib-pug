@@ -1,4 +1,4 @@
-# grunt-contrib-jade [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade)
+# grunt-contrib-jade v0.9.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade)
 
 > Compile Jade templates.
 
@@ -53,7 +53,7 @@ options: {
 }
 ```
 
-or you can have options from required json-file:
+or you can have options from a required JSON file:
 
 ```js
 options: {
@@ -64,10 +64,12 @@ options: {
 }
 ```
 
-#### Filters
-If you want to use filters you have two ways to do it. Firstly, you have to declare `filters` field of `options` object and then write filters inline in your Gruntfile.js or define filters in separate file and export it.
+#### filters
+Type: `Object`
 
-Filters has context like this: `{jade: jade, locals: locals}`, where `jade` is global jade instance and `locals` is options passed to `options.data` with require of json-file. That's why you can use inside filters `this.jade.render()` to render content of block and locals as `#{variable}` from json-file you required and returned inside `options.data` field.
+If you want to use filters you have two ways to do it. First you can write your filters inline within your Gruntfile.js or define filters in separate file and export it.
+
+Filters are given a context with the `jade` instance and local variables: `{jade: jade, data: data}`, where `jade` is global jade instance and `data` is options passed to `options.data`. You can use `this.jade.render()` inside your filters to render the content of a block and locals as `#{variable}` from your data.
 
 ##### Inline filters
 
@@ -83,7 +85,7 @@ options: {
 
 ##### Exported filters
 
-*Gruntfile:*
+*Gruntfile.js:*
 ```js
 options: {
   filters: require('./filters.js')
@@ -96,7 +98,6 @@ var jadefilters = module.exports = {};
 jadefilters.some = function(block) {};
 jadefilters.another = function(block) {};
 ```
-
 
 #### compileDebug
 Type: `Boolean`
@@ -231,6 +232,7 @@ jade: {
 
 ## Release History
 
+ * 2013-12-24   v0.9.0   Bump jade version to 1.0.0
  * 2013-07-29   v0.8.0   Bump jade version to 0.34.1
  * 2013-06-06   v0.7.0   Bump jade version / fix tests
  * 2013-05-15   v0.6.0   Bump jade version / fix tests
@@ -247,4 +249,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Mon Jul 29 2013 17:37:55.*
+*This file was generated on Tue Dec 24 2013 10:36:35.*
