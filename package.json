@@ -20,6 +20,7 @@
       "url": "https://github.com/gruntjs/grunt-contrib-jade/blob/master/LICENSE-MIT"
     }
   ],
+  "main": "tasks/jade",
   "engines": {
     "node": ">= 0.8.0"
   },
