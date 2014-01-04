@@ -1,4 +1,4 @@
-# grunt-contrib-jade v0.9.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade)
+# grunt-contrib-jade v0.9.1 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade)
 
 > Compile Jade templates.
 
@@ -232,6 +232,7 @@ jade: {
 
 ## Release History
 
+ * 2014-01-04   v0.9.1   Bump jade version to 1.0.2 Use node-lodash instead of grunt.util._
  * 2013-12-24   v0.9.0   Bump jade version to 1.0.0
  * 2013-07-29   v0.8.0   Bump jade version to 0.34.1
  * 2013-06-06   v0.7.0   Bump jade version / fix tests
@@ -249,4 +250,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Tue Dec 24 2013 10:36:35.*
+*This file was generated on Sat Jan 04 2014 14:49:43.*
