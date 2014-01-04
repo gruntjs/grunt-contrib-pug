@@ -9,7 +9,7 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var _ = grunt.util._;
+  var _ = require('lodash-node/modern/objects');
   var helpers = require('grunt-lib-contrib').init(grunt);
 
   // content conversion for templates
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
     var nsInfo;
 
-    if(options.namespace !== false){
+    if (options.namespace !== false) {
       nsInfo = helpers.getNamespaceDeclaration(options.namespace);
     }
 
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
         var compiled, filename;
         filename = processName(filepath);
 
-        options = grunt.util._.extend(options, { filename: filepath });
+        options = _.assign(options, { filename: filepath });
 
         try {
           var jade = f.orig.jade = require('jade');
