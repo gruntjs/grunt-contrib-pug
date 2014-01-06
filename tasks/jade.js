@@ -18,12 +18,17 @@ module.exports = function(grunt) {
   // filename conversion for templates
   var defaultProcessName = function(name) { return name.replace('.jade', ''); };
 
+  // Optional cache of compiled files
+  var cache = {};
+
   grunt.registerMultiTask('jade', 'Compile jade templates.', function() {
     var options = this.options({
       namespace: 'JST',
       separator: grunt.util.linefeed + grunt.util.linefeed,
       amd: false
     });
+
+    var fs = require("fs");
 
     var data = options.data;
     delete options.data;
@@ -52,26 +57,44 @@ module.exports = function(grunt) {
       })
       .forEach(function(filepath) {
         var src = processContent(grunt.file.read(filepath));
-        var compiled, filename;
+        var compiled, filename, cacheInfo, fileTime;
         filename = processName(filepath);
 
         options = _.assign(options, { filename: filepath });
 
         try {
           var jade = f.orig.jade = require('jade');
+          if (options.cache) {
+            fileTime = fs.statSync(filepath).mtime.getTime();
+            cacheInfo = cache[filepath];
+            if (cacheInfo && cacheInfo.fileTime >= fileTime) {
+              grunt.log.debug("Using compiled file "+filepath+" from cache.");
+              compiled = cacheInfo.compiled;
+            }
+          }
           f.orig.data = _.isFunction(data) ? data.call(f.orig, f.dest, f.src) : data;
           if (options.filters) {
             Object.keys(options.filters).forEach(function(filter) {
               jade.filters[filter] = options.filters[filter].bind(f.orig);
             });
           }
-          compiled = jade.compile(src, options);
+
           // if in client mode, return function source
           if (options.client) {
             compiled = jade.compileClient(src, options).toString();
           } else {
+            if (!compiled) {
+              compiled = jade.compile(src, options);
+              if (options.cache) {
+                grunt.log.debug("Storing compiled file "+filepath+" to cache.");
+                cache[filepath] = {
+                  compiled: compiled,
+                  fileTime: fileTime
+                };
+              }
+            }
             // if data is function, bind to f.orig, passing f.dest and f.src
-            compiled = jade.compile(src, options)(f.orig.data);
+            compiled = compiled(f.orig.data);
           }
           
           // if configured for amd and the namespace has been explicitly set
