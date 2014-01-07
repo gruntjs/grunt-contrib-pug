@@ -111,6 +111,8 @@ Default: **false**
 
 Compile to JS template functions for client-side use rather than directly to HTML.
 
+Make sure to also include the Jade runtime (only `runtime.js`) as described in the [Jade documentation](https://github.com/visionmedia/jade#browser-support).
+
 #### namespace
 Type: `String`, `Boolean`
 Default: **JST**
@@ -250,4 +252,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Sat Jan 04 2014 14:49:43.*
+*This file was generated on Tue Jan 07 2014 09:58:23.*
