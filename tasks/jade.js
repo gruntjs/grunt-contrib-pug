@@ -86,7 +86,10 @@ module.exports = function(grunt) {
         }
 
         if (options.client && options.namespace !== false) {
-          templates.push(nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';');
+          if (typeof options.rewrite_path === "function")
+            templates.push(nsInfo.namespace+'['+options.rewrite_path(JSON.stringify(filename))+'] = '+compiled+';');
+          else
+            templates.push(nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';');
         } else {
           templates.push(compiled);
         }
