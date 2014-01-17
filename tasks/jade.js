@@ -86,10 +86,12 @@ module.exports = function(grunt) {
         }
 
         if (options.client && options.namespace !== false) {
-          if (typeof options.rewrite_path === "function")
-            templates.push(nsInfo.namespace+'['+options.rewrite_path(JSON.stringify(filename))+'] = '+compiled+';');
-          else
-            templates.push(nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';');
+          if (typeof options.replace === "object") {
+            Object.keys(options.replace).forEach(function(key){
+              filename = filename.replace(key, options.replace[key]);
+            });
+          }
+          templates.push(nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';');
         } else {
           templates.push(compiled);
         }

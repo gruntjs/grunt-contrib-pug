@@ -121,16 +121,17 @@ The namespace in which the precompiled templates will be assigned. Use dot notat
 
 When set to `false` with **amd** option set to `true`, the templates will be returned directly from the AMD wrapper.
 
-#### rewrite_path
-Type: `function`
+#### replace
+Type: `Object`
 Default: **false**
 
-The rewrite_path can be used when your application uses the namespace option above.
-It's useful for modifying the final name used for the template, beneath your namespace.
+Can be used with the *namespace* option to make any number of
+replacements on the template namespace.
 
 ```javascript
-rewrite_path: function(name){
-  return name.replace('app/templates/','').replace('/', '_');
+replace: {
+  'app/templates/':'', // remove the leading path
+  '/':'_' // use _ instead of / for templates nested in folders 
 }
 ```
 
