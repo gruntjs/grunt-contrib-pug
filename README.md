@@ -121,6 +121,20 @@ The namespace in which the precompiled templates will be assigned. Use dot notat
 
 When set to `false` with **amd** option set to `true`, the templates will be returned directly from the AMD wrapper.
 
+#### replace
+Type: `Object`
+Default: **false**
+
+Can be used with the *namespace* option to make any number of
+replacements on the template namespace.
+
+```javascript
+replace: {
+  'app/templates/':'', // remove the leading path
+  '/':'_' // use _ instead of / for templates nested in folders 
+}
+```
+
 
 #### amd
 Type: `Boolean`
