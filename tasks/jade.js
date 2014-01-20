@@ -11,6 +11,7 @@
 module.exports = function(grunt) {
   var _ = require('lodash-node/modern/objects');
   var helpers = require('grunt-lib-contrib').init(grunt);
+  var chalk = require('chalk');
 
   // content conversion for templates
   var defaultProcessContent = function(content) { return content; };
@@ -80,7 +81,7 @@ module.exports = function(grunt) {
             compiled = 'return ' + compiled;
           }
         } catch (e) {
-          grunt.log.warn('Jade failed to compile ' + filepath + '.');
+          grunt.log.warn('Jade failed to compile "' + filepath + '".');
           grunt.log.error(e);
           return false;
         }
@@ -121,7 +122,7 @@ module.exports = function(grunt) {
         }
 
         grunt.file.write(f.dest, output.join(grunt.util.normalizelf(options.separator)));
-        grunt.log.writeln('File "' + f.dest + '" created.');
+        grunt.log.writeln('File ' + chalk.cyan(f.dest) + ' created.');
       }
     });
 
