@@ -234,6 +234,7 @@ jade: {
 
 ## Release History
 
+ * 2014-01-20   v0.10.0   Bump jade version to ~1.1.5 Fix AUTHORS
  * 2014-01-04   v0.9.1   Bump jade version to 1.0.2 Use node-lodash instead of grunt.util._
  * 2013-12-24   v0.9.0   Bump jade version to 1.0.0
  * 2013-07-29   v0.8.0   Bump jade version to 0.34.1
@@ -252,4 +253,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Mon Jan 20 2014 08:08:16.*
+*This file was generated on Mon Jan 20 2014 08:20:52.*
