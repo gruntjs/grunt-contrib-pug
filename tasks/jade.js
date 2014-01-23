@@ -43,7 +43,7 @@ module.exports = function(grunt) {
       var templates = [];
 
       f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
+        // warn on and remove invalid source files (if nonull was set)
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
@@ -74,9 +74,9 @@ module.exports = function(grunt) {
             // if data is function, bind to f.orig, passing f.dest and f.src
             compiled = jade.compile(src, options)(f.orig.data);
           }
-          
-          // if configured for amd and the namespace has been explicitly set
-          // to false, the jade template will be directly returned
+
+          // if configured for AMD and the namespace has been explicitly set
+          // to false, the Jade template will be directly returned
           if (options.client && options.amd && options.namespace === false) {
             compiled = 'return ' + compiled;
           }
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
         }
 
         if (options.client && options.namespace !== false) {
-          templates.push(nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';');
+          templates.push(nsInfo.namespace + '[' + JSON.stringify(filename) + '] = ' + compiled + ';');
         } else {
           templates.push(compiled);
         }
@@ -111,14 +111,14 @@ module.exports = function(grunt) {
         }
 
         if (options.amd) {
-          // Wrap the file in an AMD define fn.
-          output.unshift("define(['jade'], function(jade) { if(jade && jade['runtime'] !== undefined) { jade = jade.runtime; }");
+          // wrap the file in an AMD define function
+          output.unshift('define([\'jade\'], function(jade) { if(jade && jade[\'runtime\'] !== undefined) { jade = jade.runtime; }');
           if (options.namespace !== false) {
-            // Namespace has not been explicitly set to false; the AMD
-            // wrapper will return the object containing the template.
-            output.push("return "+nsInfo.namespace+";");
+            // namespace has not been explicitly set to false;
+            // the AMD wrapper will return the object containing the template
+            output.push('return ' + nsInfo.namespace + ';');
           }
-          output.push("});");
+          output.push('});');
         }
 
         grunt.file.write(f.dest, output.join(grunt.util.normalizelf(options.separator)));
