@@ -9,7 +9,6 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var _ = require('lodash-node/modern/objects');
   var helpers = require('grunt-lib-contrib').init(grunt);
   var chalk = require('chalk');
 
@@ -56,22 +55,25 @@ module.exports = function(grunt) {
         var compiled, filename;
         filename = processName(filepath);
 
-        options = _.assign(options, { filename: filepath });
+        options.filename = filepath;
 
         try {
           var jade = f.orig.jade = require('jade');
-          f.orig.data = _.isFunction(data) ? data.call(f.orig, f.dest, f.src) : data;
+          if (typeof data === 'function') {
+            // if data is function, bind to f.orig, passing f.dest and f.src
+            f.orig.data = data.call(f.orig, f.dest, f.src);
+          } else {
+            f.orig.data = data;
+          }
           if (options.filters) {
             Object.keys(options.filters).forEach(function(filter) {
               jade.filters[filter] = options.filters[filter].bind(f.orig);
             });
           }
-          compiled = jade.compile(src, options);
           // if in client mode, return function source
           if (options.client) {
             compiled = jade.compileClient(src, options).toString();
           } else {
-            // if data is function, bind to f.orig, passing f.dest and f.src
             compiled = jade.compile(src, options)(f.orig.data);
           }
 
