@@ -1,4 +1,4 @@
-# grunt-contrib-jade v0.10.0 [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade)
+# grunt-contrib-jade v0.11.0-pre [![Build Status](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade)
 
 > Compile Jade templates.
 
@@ -253,4 +253,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Mon Jan 20 2014 08:20:52.*
+*This file was generated on Mon Feb 17 2014 13:37:28.*
