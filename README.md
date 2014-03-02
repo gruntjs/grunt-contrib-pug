@@ -151,6 +151,12 @@ options: {
 }
 ```
 
+#### processContent
+Type: `Function`
+Default: `function(content) { return content; };`
+
+This option accepts a function that lets you perform additional content processing.
+
 ### Usage Examples
 
 ```js
@@ -253,4 +259,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Mon Feb 17 2014 13:37:28.*
+*This file was generated on Sun Mar 02 2014 15:02:26.*
