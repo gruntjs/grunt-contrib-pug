@@ -1,3 +1,10 @@
+v0.11.0:
+  date: 2014-03-02
+  changes:
+    - Document 'processContent'.
+    - Bump to jade 1.2.
+    - Update copyright to 2014.
+    - Remove lodash-node module.
 v0.10.0:
   date: 2014-01-20
   changes:
