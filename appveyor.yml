@@ -5,10 +5,6 @@ project_id: "p24tu0v9akk906yq"
 # build version format
 version: "{build}"
 
-# fix lineendings in Windows
-init:
-  - git config --global core.autocrlf input
-
 # what combinations to test
 environment:
   matrix:
