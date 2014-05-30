@@ -1,3 +1,8 @@
+v0.12.0:
+  date: 2014-05-29
+  changes:
+    - Update to jade 1.3.
+    - Make jade task to fail on an error.
 v0.11.0:
   date: 2014-03-02
   changes:

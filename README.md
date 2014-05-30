@@ -1,4 +1,4 @@
-# grunt-contrib-jade v0.11.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-jade"><img src="https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master" alt="Build Status: Windows" height="18" /></a>
+# grunt-contrib-jade v0.12.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-jade"><img src="https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master" alt="Build Status: Windows" height="18" /></a>
 
 > Compile Jade templates.
 
@@ -240,6 +240,7 @@ jade: {
 
 ## Release History
 
+ * 2014-05-29   v0.12.0   Update to jade 1.3. Make jade task to fail on an error.
  * 2014-03-02   v0.11.0   Document 'processContent'. Bump to jade 1.2. Update copyright to 2014. Remove lodash-node module.
  * 2014-01-20   v0.10.0   Bump jade version to ~1.1.5 Fix AUTHORS
  * 2014-01-04   v0.9.1   Bump jade version to 1.0.2 Use node-lodash instead of grunt.util._
@@ -260,4 +261,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Tue Apr 08 2014 17:01:05.*
+*This file was generated on Thu May 29 2014 19:27:22.*
