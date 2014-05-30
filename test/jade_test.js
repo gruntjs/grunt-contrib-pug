@@ -4,7 +4,7 @@ exports.jade = {
   compile: function(test) {
     'use strict';
 
-    test.expect(8);
+    test.expect(9);
 
     var actual = grunt.file.read('tmp/jade.html');
     var expected = grunt.file.read('test/expected/jade.html');
@@ -37,6 +37,10 @@ exports.jade = {
     actual = grunt.file.read('tmp/jadeAdvancedFilters.html');
     expected = grunt.file.read('test/expected/jadeAdvancedFilters.html');
     test.equal(expected, actual, 'should compile jade with nested filters with access to locals');
+
+    actual = grunt.file.read('tmp/jadeUsingmixin.html');
+    expected = grunt.file.read('test/expected/jadeUsingmixin.html');
+    test.equal(expected, actual, 'should compile jade with nested mixins');
 
     test.done();
   }
