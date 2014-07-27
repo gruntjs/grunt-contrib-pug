@@ -9,7 +9,7 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var helpers = require('grunt-lib-contrib').init(grunt);
+  var lib = require('./lib/jade');
   var chalk = require('chalk');
 
   // content conversion for templates
@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     var nsInfo;
 
     if (options.namespace !== false) {
-      nsInfo = helpers.getNamespaceDeclaration(options.namespace);
+      nsInfo = lib.getNamespaceDeclaration(options.namespace);
     }
 
     // assign transformation functions
