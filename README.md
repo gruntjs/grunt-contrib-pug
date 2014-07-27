@@ -1,4 +1,4 @@
-# grunt-contrib-jade v0.12.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-jade"><img src="https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master" alt="Build Status: Windows" height="18" /></a>
+# grunt-contrib-jade v0.13.0-pre [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-jade"><img src="https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master" alt="Build Status: Windows" height="18" /></a>
 
 > Compile Jade templates.
 
@@ -261,4 +261,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Thu May 29 2014 19:27:22.*
+*This file was generated on Sun Jul 27 2014 11:58:51.*

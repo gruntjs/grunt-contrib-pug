@@ -124,9 +124,11 @@ module.exports = function(grunt) {
         }
 
         grunt.file.write(f.dest, output.join(grunt.util.normalizelf(options.separator)));
-        grunt.log.writeln('File ' + chalk.cyan(f.dest) + ' created.');
+        grunt.verbose.writeln('File ' + chalk.cyan(f.dest) + ' created.');
       }
     });
+
+    grunt.log.ok(this.files.length + ' ' + grunt.util.pluralize(this.files.length, 'file/files') + ' created.');
 
   });
 
