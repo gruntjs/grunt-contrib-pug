@@ -10,7 +10,7 @@ if ( test)
 {
 buf.push("<div>testing</div>");
 }
-buf.push("</div>");}("test" in locals_for_with?locals_for_with.test:typeof test!=="undefined"?test:undefined));;return buf.join("");
+buf.push("</div>");}.call(this,"test" in locals_for_with?locals_for_with.test:typeof test!=="undefined"?test:undefined));;return buf.join("");
 }
 
 });
