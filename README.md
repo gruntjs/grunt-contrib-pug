@@ -1,4 +1,4 @@
-# grunt-contrib-jade v0.13.0-pre [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-jade"><img src="https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master" alt="Build Status: Windows" height="18" /></a>
+# grunt-contrib-jade v0.13.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-jade.png?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade) <a href="https://ci.appveyor.com/project/gruntjs/grunt-contrib-jade"><img src="https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master" alt="Build Status: Windows" height="18" /></a>
 
 > Compile Jade templates.
 
@@ -19,7 +19,7 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-contrib-jade');
 ```
 
-*This plugin was designed to work with Grunt 0.4.x. If you're still using grunt v0.3.x it's strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4), but in case you can't please use [v0.3.1](https://github.com/gruntjs/grunt-contrib-jade/tree/0.3-stable).*
+*This plugin was designed to work with Grunt 0.4.x. If you're still using grunt v0.3.x it's strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4), but in case you can't please use [v0.3.1](https://github.com/gruntjs/grunt-contrib-jade/tree/grunt-0.3-stable).*
 
 
 
@@ -240,6 +240,7 @@ jade: {
 
 ## Release History
 
+ * 2014-09-30   v0.13.0   Update to jade 1.7.0.
  * 2014-05-29   v0.12.0   Update to jade 1.3. Make jade task to fail on an error.
  * 2014-03-02   v0.11.0   Document 'processContent'. Bump to jade 1.2. Update copyright to 2014. Remove lodash-node module.
  * 2014-01-20   v0.10.0   Bump jade version to ~1.1.5 Fix AUTHORS
@@ -261,4 +262,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Sun Jul 27 2014 11:58:51.*
+*This file was generated on Tue Sep 30 2014 09:59:35.*

@@ -1,3 +1,7 @@
+v0.13.0:
+  date: 2014-09-30
+  changes:
+    - Update to jade 1.7.0.
 v0.12.0:
   date: 2014-05-29
   changes:
