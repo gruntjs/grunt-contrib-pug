@@ -29,6 +29,12 @@ _Run this task with the `grunt jade` command._
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 ### Options
 
+###### debug
+Type: `Boolean`
+Default: **false**
+
+Toggle success output (eg. 'File template.html created.').
+
 #### pretty
 Type: `Boolean`
 Default: **false**
@@ -262,4 +268,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Tue Sep 30 2014 09:59:35.*
+*This file was generated on Tue Oct 28 2014 15:13:39.*
