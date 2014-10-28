@@ -1,5 +1,11 @@
 # Options
 
+#### debug
+Type: `Boolean`
+Default: **false**
+
+Toggle success output (eg. 'File template.html created.').
+
 ## pretty
 Type: `Boolean`
 Default: **false**

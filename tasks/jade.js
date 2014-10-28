@@ -128,7 +128,9 @@ module.exports = function(grunt) {
       }
     });
 
-    grunt.log.ok(this.files.length + ' ' + grunt.util.pluralize(this.files.length, 'file/files') + ' created.');
+    if (grunt.option('debug') || options.debug !== false) {
+      grunt.log.ok(this.files.length + ' ' + grunt.util.pluralize(this.files.length, 'file/files') + ' created.');
+    }
 
   });
 
