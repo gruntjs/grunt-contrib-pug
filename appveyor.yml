@@ -1,7 +1,7 @@
 # appveyor file
 # http://www.appveyor.com/docs/appveyor-yml
 
-shallow_clone: "{build}"
+shallow_clone: true
 
 # build version format
 version: "{build}"
