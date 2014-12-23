@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-jade",
   "description": "Compile Jade templates.",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "homepage": "https://github.com/gruntjs/grunt-contrib-jade",
   "author": {
     "name": "Grunt Team",
@@ -46,5 +46,6 @@
   "files": [
     "tasks",
     "LICENSE-MIT"
-  ]
+  ],
+  "appveyor_id": "p24tu0v9akk906yq"
 }
