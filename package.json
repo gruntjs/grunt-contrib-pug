@@ -27,7 +27,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "jade": "~1.8.2",
+    "jade": "~1.9.1",
     "chalk": "~0.5.1"
   },
   "devDependencies": {
