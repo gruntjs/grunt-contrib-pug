@@ -51,7 +51,7 @@ module.exports = function(grunt) {
         }
       })
       .forEach(function(filepath) {
-        var src = processContent(grunt.file.read(filepath));
+        var src = processContent(grunt.file.read(filepath), filepath);
         var compiled, filename;
         filename = processName(filepath);
 
