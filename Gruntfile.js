@@ -65,6 +65,27 @@ module.exports = function(grunt) {
         }
       },
 
+      compile_amd_with_dependencies: {
+        files: {
+          'tmp/amd/jadeDeps.js': ['test/fixtures/jade.jade'],
+          'tmp/amd/jade2Deps.js': ['test/fixtures/jade2.jade'],
+        },
+        options: {
+          client: true,
+          amd: true,
+          amdDeps: [
+            'moment',
+            'another'
+          ],
+          namespace: false,
+          compileDebug: false,
+          data: {
+            test: true,
+            year: '<%= grunt.template.today("yyyy") %>'
+          }
+        }
+      },
+
       compile_jst: {
         files: {
           'tmp/jst/jade.js': ['test/fixtures/jade.jade'],

@@ -8,7 +8,7 @@ exports.jade = {
   compile: function(test) {
     'use strict';
 
-    test.expect(4);
+    test.expect(6);
 
     var actual = read('tmp/amd/jade.js');
     var expected = read('test/expected/amd/jade.js');
@@ -25,6 +25,14 @@ exports.jade = {
     actual = read('tmp/amd/jadeTemplate.js');
     expected = read('test/expected/amd/jadeTemplate.js');
     test.equal(expected, actual, 'should compile jade templates to js with grunt template support');
+
+    actual = read('tmp/amd/jadeDeps.js');
+    expected = read('test/expected/amd/jadeDeps.js');
+    test.equal(expected, actual, 'should compile jade templates to js with AMD dependencies');
+
+    actual = read('tmp/amd/jade2Deps.js');
+    expected = read('test/expected/amd/jade2Deps.js');
+    test.equal(expected, actual, 'should compile jade templates to js with AMD dependencies');
 
     test.done();
   }

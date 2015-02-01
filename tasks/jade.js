@@ -114,7 +114,28 @@ module.exports = function(grunt) {
 
         if (options.amd) {
           // wrap the file in an AMD define function
-          output.unshift('define([\'jade\'], function(jade) { if(jade && jade[\'runtime\'] !== undefined) { jade = jade.runtime; }');
+          var amdBuffer = [];
+          if (options.amdDeps) {
+            amdBuffer.push('define([\'jade\'');
+
+            options.amdDeps.forEach(function(dep) {
+              amdBuffer.push(', \'' + dep + '\'');
+            });
+
+            amdBuffer.push('], function(jade');
+
+            options.amdDeps.forEach(function(dep) {
+              console.log("param: " + dep);
+              amdBuffer.push(', ' + dep);
+            });
+
+            amdBuffer.push(')');
+          } else {
+            amdBuffer.push('define([\'jade\'], function(jade)');
+          }
+          amdBuffer.push(' { if(jade && jade[\'runtime\'] !== undefined) { jade = jade.runtime; }');
+          output.unshift(amdBuffer.join(''));
+
           if (options.namespace !== false) {
             // namespace has not been explicitly set to false;
             // the AMD wrapper will return the object containing the template
