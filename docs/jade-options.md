@@ -124,6 +124,6 @@ options: {
 
 ## processContent
 Type: `Function`
-Default: `function(content) { return content; };`
+Default: `function(content, filename) { return content; };`
 
 This option accepts a function that lets you perform additional content processing.

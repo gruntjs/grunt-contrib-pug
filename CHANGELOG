@@ -1,3 +1,7 @@
+v0.14.1:
+  date: 2014-02-02
+  changes:
+    - Add filename to processContent arguments.
 v0.14.0:
   date: 2014-12-23
   changes:
