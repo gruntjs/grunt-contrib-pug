@@ -89,7 +89,14 @@ module.exports = function(grunt) {
         }
 
         if (options.client && options.namespace !== false) {
-          templates.push(nsInfo.namespace + '[' + JSON.stringify(filename) + '] = ' + compiled + ';');
+          var ns;
+          if (options.dir) {
+             var relPath = filename.replace(new RegExp('^'+options.dir), '');
+             ns = '["' + relPath.replace(/\//gi, '"]["') + '"]';
+          } else
+             ns = '[' + JSON.stringify(filename) + ']';
+
+          templates.push(nsInfo.namespace + ns + ' = ' + compiled + ';');
         } else {
           templates.push(compiled);
         }
