@@ -20,8 +20,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "jade": "^1.9.1",
-    "chalk": "^0.5.1"
+    "chalk": "^1.0.0",
+    "jade": "^1.9.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
