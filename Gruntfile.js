@@ -137,7 +137,7 @@ module.exports = function(grunt) {
         },
         options: {
           filters: require('./test/fixtures/inc/advancedFilters.js'),
-          data: function(dest, src) {
+          data: function() {
             return require('./test/fixtures/inc/locals.json');
           }
         }
