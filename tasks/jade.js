@@ -103,7 +103,7 @@ module.exports = function(grunt) {
           output.unshift(nsInfo.declaration);
 
           if (options.node) {
-            output.unshift('var jade = jade || require(\'jade\').runtime;');
+            output.unshift('var jade = jade || require(\'jade/lib/runtime\');');
 
             var nodeExport = 'if (typeof exports === \'object\' && exports) {';
             nodeExport += 'module.exports = ' + nsInfo.namespace + ';}';
