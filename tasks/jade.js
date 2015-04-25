@@ -13,10 +13,14 @@ module.exports = function(grunt) {
   var chalk = require('chalk');
 
   // content conversion for templates
-  var defaultProcessContent = function(content) { return content; };
+  var defaultProcessContent = function(content) {
+    return content;
+  };
 
   // filename conversion for templates
-  var defaultProcessName = function(name) { return name.replace('.jade', ''); };
+  var defaultProcessName = function(name) {
+    return name.replace('.jade', '');
+  };
 
   grunt.registerMultiTask('jade', 'Compile jade templates.', function() {
     var options = this.options({
@@ -46,9 +50,8 @@ module.exports = function(grunt) {
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
           return false;
-        } else {
-          return true;
         }
+        return true;
       })
       .forEach(function(filepath) {
         var src = processContent(grunt.file.read(filepath), filepath);

@@ -1,3 +1,5 @@
+'use strict';
+
 var grunt = require('grunt');
 
 var read = function(src) {
@@ -6,7 +8,6 @@ var read = function(src) {
 
 exports.jade = {
   compile: function(test) {
-    'use strict';
 
     test.expect(9);
 
