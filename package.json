@@ -1,6 +1,6 @@
 {
   "name": "grunt-contrib-jade",
-  "description": "Compile Jade templates.",
+  "description": "Compile Jade templates",
   "version": "0.14.1",
   "author": {
     "name": "Grunt Team",
