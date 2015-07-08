@@ -9,7 +9,7 @@ var read = function(src) {
 exports.jade = {
   compile: function(test) {
 
-    test.expect(9);
+    test.expect(10);
 
     var actual = read('tmp/jade.html');
     var expected = read('test/expected/jade.html');
@@ -46,6 +46,10 @@ exports.jade = {
     actual = read('tmp/jadeUsingmixin.html');
     expected = read('test/expected/jadeUsingmixin.html');
     test.equal(expected, actual, 'should compile jade with nested mixins');
+
+    actual = read('tmp/jadeCodeBlock.html');
+    expected = read('test/expected/jadeCodeBlock.html');
+    test.equal(expected, actual, 'should compile jade with codeblock');
 
     test.done();
   }

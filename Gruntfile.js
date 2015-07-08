@@ -36,7 +36,8 @@ module.exports = function(grunt) {
           'tmp/jade2.html': ['test/fixtures/jade2.jade'],
           'tmp/jadeInclude.html': ['test/fixtures/jadeInclude.jade'],
           'tmp/jadeTemplate.html': ['test/fixtures/jadeTemplate.jade'],
-          'tmp/jadeUsingmixin.html': ['test/fixtures/jadeUsingmixin.jade']
+          'tmp/jadeUsingmixin.html': ['test/fixtures/jadeUsingmixin.jade'],
+          'tmp/jadeCodeBlock.html': ['test/fixtures/jadeCodeBlock.jade']
         },
         options: {
           data: {
