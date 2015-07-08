@@ -1,11 +1,11 @@
 # grunt-contrib-jade v0.15.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-jade.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-jade/branch/master)
 
-> Compile Jade templates.
+> Compile Jade templates
 
 
 
 ## Getting Started
-This plugin requires Grunt `~0.4.1`
+This plugin requires Grunt `>=0.4.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -153,7 +153,7 @@ options: {
 
 #### processContent
 Type: `Function`
-Default: `function(content) { return content; };`
+Default: `function(content, filename) { return content; };`
 
 This option accepts a function that lets you perform additional content processing.
 
@@ -240,7 +240,8 @@ jade: {
 
 ## Release History
 
- * 2015-07-08   v0.15.0   Update to jade 1.11.0.
+ * 2015-07-08   v0.15.0   Update to jade 1.11.0. Add test for Codeblocks
+ * 2014-02-02   v0.14.1   Add filename to processContent arguments.
  * 2014-12-23   v0.14.0   Update to jade 1.8.2.
  * 2014-09-30   v0.13.0   Update to jade 1.7.0.
  * 2014-05-29   v0.12.0   Update to jade 1.3. Make jade task to fail on an error.
@@ -264,4 +265,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Tue Dec 23 2014 14:22:07.*
+*This file was generated on Wed Jul 08 2015 19:56:06.*
