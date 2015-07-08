@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "jade": "^1.9.1"
+    "jade": "^1.11.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

@@ -1,3 +1,8 @@
+v0.15.0:
+  date: 2015-07-08
+  changes:
+    - Update to jade 1.11.0.
+    - Add test for Codeblocks
 v0.14.1:
   date: 2014-02-02
   changes:
