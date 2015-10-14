@@ -1,8 +1,8 @@
 # Options
 
 ## pretty
-Type: `Boolean`
-Default: **false**
+Type: `Boolean`  
+Default: `false`
 
 Output indented HTML.
 
@@ -71,22 +71,22 @@ jadefilters.another = function(block) {};
 ```
 
 ## compileDebug
-Type: `Boolean`
-Default: **true**
+Type: `Boolean`  
+Default: `true`
 
 Add Jade debug instructions to generated JS templates.
 
 ## client
-Type: `Boolean`
-Default: **false**
+Type: `Boolean`  
+Default: `false`
 
 Compile to JS template functions for client-side use rather than directly to HTML.
 
 Make sure to also include the Jade runtime (only `runtime.js`) as described in the [Jade documentation](https://github.com/visionmedia/jade#browser-support).
 
 ## namespace
-Type: `String`, `Boolean`
-Default: **JST**
+Type: `String`, `Boolean`  
+Default: `'JST'`
 
 The namespace in which the precompiled templates will be assigned. Use dot notation (*e.g.* `App.Templates`) for nested namespaces or `false` for no namespace wrapping.
 
@@ -94,8 +94,8 @@ When set to `false` with **amd** option set to `true`, the templates will be ret
 
 
 ## amd
-Type: `Boolean`
-Default: **false**
+Type: `Boolean`  
+Default: `false`
 
 Wraps the output file with an AMD define function and returns the compiled template namespace unless namespace has been explicitly set to false in which case the template function will be returned directly.
 
@@ -123,7 +123,7 @@ options: {
 ```
 
 ## processContent
-Type: `Function`
+Type: `Function`  
 Default: `function(content, filename) { return content; };`
 
 This option accepts a function that lets you perform additional content processing.
