@@ -2,7 +2,7 @@
  * grunt-contrib-jade
  * http://gruntjs.com/
  *
- * Copyright (c) 2015 Eric Woroshow, contributors
+ * Copyright (c) 2016 Eric Woroshow, contributors
  * Licensed under the MIT license.
  */
 
