@@ -239,24 +239,24 @@ jade: {
 
 ## Release History
 
- * 2016-03-04   v1.0.0   Point main to task and remove peerDeps. update docs and tests.
+ * 2016-03-04   v1.0.0   Point main to task and remove peerDeps. Update docs and tests.
  * 2015-07-08   v0.15.0   Update to jade 1.11.0. Add test for Codeblocks
- * 2014-02-02   v0.14.1   Add filename to processContent arguments.
+ * 2014-02-02   v0.14.1   Add filename to `processContent` arguments.
  * 2014-12-23   v0.14.0   Update to jade 1.8.2.
  * 2014-09-30   v0.13.0   Update to jade 1.7.0.
- * 2014-05-29   v0.12.0   Update to jade 1.3. Make jade task to fail on an error.
- * 2014-03-02   v0.11.0   Document 'processContent'. Bump to jade 1.2. Update copyright to 2014. Remove lodash-node module.
- * 2014-01-20   v0.10.0   Bump jade version to ~1.1.5 Fix AUTHORS
- * 2014-01-04   v0.9.1   Bump jade version to 1.0.2 Use node-lodash instead of grunt.util._
- * 2013-12-24   v0.9.0   Bump jade version to 1.0.0
- * 2013-07-29   v0.8.0   Bump jade version to 0.34.1
- * 2013-06-06   v0.7.0   Bump jade version / fix tests
- * 2013-05-15   v0.6.0   Bump jade version / fix tests
- * 2013-05-06   v0.5.1   Allow options.data to be a function
- * 2013-03-07   v0.5.0   Allow compilation to JS functions Support JST and AMD formats
+ * 2014-05-29   v0.12.0   Update to jade 1.3. Make jade task fail on an error.
+ * 2014-03-02   v0.11.0   Document `processContent`. Bump to jade 1.2. Update copyright to 2014. Remove lodash-node module.
+ * 2014-01-20   v0.10.0   Bump jade version to ~1.1.5. Fix AUTHORS.
+ * 2014-01-04   v0.9.1   Bump jade version to 1.0.2. Use node-lodash instead of `grunt.util._`.
+ * 2013-12-24   v0.9.0   Bump jade version to 1.0.0.
+ * 2013-07-29   v0.8.0   Bump jade version to 0.34.1.
+ * 2013-06-06   v0.7.0   Bump jade version / fix tests.
+ * 2013-05-15   v0.6.0   Bump jade version / fix tests.
+ * 2013-05-06   v0.5.1   Allow `options.data` to be a function.
+ * 2013-03-07   v0.5.0   Allow compilation to JS functions. Support JST and AMD formats.
  * 2013-02-15   v0.4.0   First official release for Grunt 0.4.0.
  * 2013-01-24   v0.4.0rc7   Updating grunt/gruntplugin dependencies to rc7. Changing in-development grunt/gruntplugin dependency versions from tilde version ranges to specific versions.
- * 2013-01-09   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to this.files api.
+ * 2013-01-09   v0.4.0rc5   Updating to work with grunt v0.4.0rc5. Switching to `this.files` API.
  * 2012-10-12   v0.3.1   Rename grunt-contrib-lib dep to grunt-lib-contrib.
  * 2012-09-24   v0.3.0   Options no longer accepted from global config key.
  * 2012-09-10   v0.2.0   Refactored from grunt-contrib into individual repo.
@@ -265,4 +265,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Fri Mar 04 2016 16:42:39.*
+*This file was generated on Fri Mar 18 2016 19:01:28.*
