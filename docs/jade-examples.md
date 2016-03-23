@@ -9,7 +9,7 @@ jade: {
       }
     },
     files: {
-      "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
+      'path/to/dest.html': ['path/to/templates/*.jade', 'another/path/tmpl.jade']
     }
   }
 }
@@ -26,7 +26,7 @@ jade: {
       }
     },
     files: {
-      "debug.html": "test.jade"
+      'debug.html': 'test.jade'
     }
   },
   release: {
@@ -36,7 +36,7 @@ jade: {
       }
     },
     files: {
-      "release.html": "test.jade"
+      'release.html': 'test.jade'
     }
   }
 }
@@ -50,11 +50,11 @@ jade: {
     options: {
       data: {
         debug: true,
-        timestamp: "<%= new Date().getTime() %>"
+        timestamp: '<%= new Date().getTime() %>'
       }
     },
     files: {
-      "debug.html": "test.jade"
+      'debug.html': 'test.jade'
     }
   }
 }
@@ -68,11 +68,11 @@ jade: {
     options: {
       data: {
         debug: true,
-        timestamp: "<%= grunt.template.today() %>"
+        timestamp: '<%= grunt.template.today() %>'
       }
     },
     files: {
-      "debug.html": "test.jade"
+      'debug.html': 'test.jade'
     }
   }
 }
