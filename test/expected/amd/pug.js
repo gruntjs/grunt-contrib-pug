@@ -1,9 +1,9 @@
-define(['jade'], function(jade) { if(jade && jade['runtime'] !== undefined) { jade = jade.runtime; }
+define(['pug'], function(pug) { if(pug && pug['runtime'] !== undefined) { pug = pug.runtime; }
 
 return function template(locals) {
 var buf = [];
-var jade_mixins = {};
-var jade_interp;
+var pug_mixins = {};
+var pug_interp;
 ;var locals_for_with = (locals || {});(function (test) {
 buf.push("<div id=\"test\" class=\"test\"><span id=\"data\">data</span>");
 if ( test)

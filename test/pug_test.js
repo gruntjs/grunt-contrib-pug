@@ -19,7 +19,6 @@ exports.pug = {
     expected = read('test/expected/pug2.html');
     test.equal(expected, actual, 'should compile pug templates to html (multiple files support)');
 
-    debugger
     actual = read('tmp/pugInclude.html');
     expected = read('test/expected/pugInclude.html');
     test.equal(expected, actual, 'should compile pug templates to html with an include');

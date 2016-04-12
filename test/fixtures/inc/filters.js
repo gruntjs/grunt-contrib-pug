@@ -1,9 +1,9 @@
-var jadefilters = module.exports = {};
+var pugfilters = module.exports = {};
 
-jadefilters.some = function(block) {
+pugfilters.some = function(block) {
   return 'some: ' + block;
 };
 
-jadefilters.another = function(block) {
+pugfilters.another = function(block) {
   return 'another: ' + block;
 };

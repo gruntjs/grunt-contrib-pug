@@ -1,9 +1,9 @@
 this["JST"] = this["JST"] || {};
 
-this["JST"]["jade2"] = function template(locals) {
+this["JST"]["pug2"] = function template(locals) {
 var buf = [];
-var jade_mixins = {};
-var jade_interp;
+var pug_mixins = {};
+var pug_interp;
 ;var locals_for_with = (locals || {});(function (test) {
 buf.push("<div id=\"test\" class=\"test\"><span id=\"data\">data</span>");
 if ( test)

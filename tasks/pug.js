@@ -81,13 +81,13 @@ module.exports = function(grunt) {
           }
 
           // if configured for AMD and the namespace has been explicitly set
-          // to false, the Jade template will be directly returned
+          // to false, the Pug template will be directly returned
           if (options.client && options.amd && options.namespace === false) {
             compiled = 'return ' + compiled;
           }
         } catch (e) {
           grunt.log.error(e);
-          grunt.fail.warn('Jade failed to compile "' + filepath + '".');
+          grunt.fail.warn('Pug failed to compile "' + filepath + '".');
           return false;
         }
 
