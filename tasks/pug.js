@@ -1,5 +1,5 @@
 /*
- * grunt-contrib-jade
+ * grunt-contrib-pug
  * http://gruntjs.com/
  *
  * Copyright (c) 2016 Eric Woroshow, contributors
@@ -9,7 +9,7 @@
 'use strict';
 
 module.exports = function(grunt) {
-  var lib = require('./lib/jade');
+  var lib = require('./lib/pug');
   var chalk = require('chalk');
 
   // content conversion for templates
@@ -19,10 +19,10 @@ module.exports = function(grunt) {
 
   // filename conversion for templates
   var defaultProcessName = function(name) {
-    return name.replace('.jade', '');
+    return name.replace('.pug', '');
   };
 
-  grunt.registerMultiTask('jade', 'Compile jade templates.', function() {
+  grunt.registerMultiTask('pug', 'Compile pug templates.', function() {
     var options = this.options({
       namespace: 'JST',
       separator: grunt.util.linefeed + grunt.util.linefeed,
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
         options.filename = filepath;
 
         try {
-          var jade = f.orig.jade = require('jade');
+          var pug = f.orig.pug = require('pug');
           if (typeof data === 'function') {
             // if data is function, bind to f.orig, passing f.dest and f.src
             f.orig.data = data.call(f.orig, f.dest, f.src);
@@ -70,14 +70,14 @@ module.exports = function(grunt) {
           }
           if (options.filters) {
             Object.keys(options.filters).forEach(function(filter) {
-              jade.filters[filter] = options.filters[filter].bind(f.orig);
+              pug.filters[filter] = options.filters[filter].bind(f.orig);
             });
           }
           // if in client mode, return function source
           if (options.client) {
-            compiled = jade.compileClient(src, options).toString();
+            compiled = pug.compileClient(src, options).toString();
           } else {
-            compiled = jade.compile(src, options)(f.orig.data);
+            compiled = pug.compile(src, options)(f.orig.data);
           }
 
           // if configured for AMD and the namespace has been explicitly set
@@ -106,7 +106,7 @@ module.exports = function(grunt) {
           output.unshift(nsInfo.declaration);
 
           if (options.node) {
-            output.unshift('var jade = jade || require(\'jade/lib/runtime\');');
+            output.unshift('var pug = pug || require(\'pug/lib/runtime\');');
 
             var nodeExport = 'if (typeof exports === \'object\' && exports) {';
             nodeExport += 'module.exports = ' + nsInfo.namespace + ';}';
@@ -117,7 +117,7 @@ module.exports = function(grunt) {
 
         if (options.amd) {
           // wrap the file in an AMD define function
-          output.unshift('define([\'jade\'], function(jade) { if(jade && jade[\'runtime\'] !== undefined) { jade = jade.runtime; }');
+          output.unshift('define([\'pug\'], function(pug) { if(pug && pug[\'runtime\'] !== undefined) { pug = pug.runtime; }');
           if (options.namespace !== false) {
             // namespace has not been explicitly set to false;
             // the AMD wrapper will return the object containing the template

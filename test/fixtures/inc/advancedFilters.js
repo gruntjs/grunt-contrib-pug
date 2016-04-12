@@ -1,17 +1,17 @@
-var jadefilters = module.exports = {};
+var pugfilters = module.exports = {};
 
-jadefilters.Nested = function(block) {
-  return '{Nested}' + this.jade.render(block, this.data) + '{/Nested}';
+pugfilters.Nested = function(block) {
+  return '{Nested}' + this.pug.render(block, this.data) + '{/Nested}';
 };
 
-jadefilters.Fiters = function(block) {
-  return '{Fiters}' + this.jade.render(block, this.data) + '{/Fiters}';
+pugfilters.Fiters = function(block) {
+  return '{Fiters}' + this.pug.render(block, this.data) + '{/Fiters}';
 };
 
-jadefilters.Are = function(block) {
-  return '{Are}' + this.jade.render(block, this.data) + '{/Are}';
+pugfilters.Are = function(block) {
+  return '{Are}' + this.pug.render(block, this.data) + '{/Are}';
 };
 
-jadefilters.Working = function(block) {
-  return '{Working}' + this.jade.render(block, this.data) + '{/Working}';
+pugfilters.Working = function(block) {
+  return '{Working}' + this.pug.render(block, this.data) + '{/Working}';
 };

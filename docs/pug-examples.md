@@ -1,7 +1,7 @@
 # Usage Examples
 
 ```js
-jade: {
+pug: {
   compile: {
     options: {
       data: {
@@ -9,7 +9,7 @@ jade: {
       }
     },
     files: {
-      'path/to/dest.html': ['path/to/templates/*.jade', 'another/path/tmpl.jade']
+      'path/to/dest.html': ['path/to/templates/*.pug', 'another/path/tmpl.pug']
     }
   }
 }
@@ -18,7 +18,7 @@ jade: {
 If you want to generate a debug file and a release file from the same template:
 
 ```js
-jade: {
+pug: {
   debug: {
     options: {
       data: {
@@ -26,7 +26,7 @@ jade: {
       }
     },
     files: {
-      'debug.html': 'test.jade'
+      'debug.html': 'test.pug'
     }
   },
   release: {
@@ -36,7 +36,7 @@ jade: {
       }
     },
     files: {
-      'release.html': 'test.jade'
+      'release.html': 'test.pug'
     }
   }
 }
@@ -45,7 +45,7 @@ jade: {
 If you want to use `grunt` template in `options.data`:
 
 ```js
-jade: {
+pug: {
   debug: {
     options: {
       data: {
@@ -54,7 +54,7 @@ jade: {
       }
     },
     files: {
-      'debug.html': 'test.jade'
+      'debug.html': 'test.pug'
     }
   }
 }
@@ -63,7 +63,7 @@ jade: {
 or you can use `grunt` helpers (grunt object was exposed at template context):
 
 ```js
-jade: {
+pug: {
   debug: {
     options: {
       data: {
@@ -72,7 +72,7 @@ jade: {
       }
     },
     files: {
-      'debug.html': 'test.jade'
+      'debug.html': 'test.pug'
     }
   }
 }

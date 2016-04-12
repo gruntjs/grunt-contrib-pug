@@ -1,5 +1,5 @@
 /*
- * grunt-contrib-jade
+ * grunt-contrib-pug
  * http://gruntjs.com/
  *
  * Copyright (c) 2016 Eric Woroshow, contributors
@@ -29,15 +29,15 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    jade: {
+    pug: {
       compile: {
         files: {
-          'tmp/jade.html': ['test/fixtures/jade.jade'],
-          'tmp/jade2.html': ['test/fixtures/jade2.jade'],
-          'tmp/jadeInclude.html': ['test/fixtures/jadeInclude.jade'],
-          'tmp/jadeTemplate.html': ['test/fixtures/jadeTemplate.jade'],
-          'tmp/jadeUsingmixin.html': ['test/fixtures/jadeUsingmixin.jade'],
-          'tmp/jadeCodeBlock.html': ['test/fixtures/jadeCodeBlock.jade']
+          'tmp/pug.html': ['test/fixtures/pug.pug'],
+          'tmp/pug2.html': ['test/fixtures/pug2.pug'],
+          'tmp/pugInclude.html': ['test/fixtures/pugInclude.pug'],
+          'tmp/pugTemplate.html': ['test/fixtures/pugTemplate.pug'],
+          'tmp/pugUsingmixin.html': ['test/fixtures/pugUsingmixin.pug'],
+          'tmp/pugCodeBlock.html': ['test/fixtures/pugCodeBlock.pug']
         },
         options: {
           data: {
@@ -49,10 +49,10 @@ module.exports = function(grunt) {
 
       compile_amd: {
         files: {
-          'tmp/amd/jade.js': ['test/fixtures/jade.jade'],
-          'tmp/amd/jade2.js': ['test/fixtures/jade2.jade'],
-          'tmp/amd/jadeInclude.js': ['test/fixtures/jadeInclude.jade'],
-          'tmp/amd/jadeTemplate.js': ['test/fixtures/jadeTemplate.jade']
+          'tmp/amd/pug.js': ['test/fixtures/pug.pug'],
+          'tmp/amd/pug2.js': ['test/fixtures/pug2.pug'],
+          'tmp/amd/pugInclude.js': ['test/fixtures/pugInclude.pug'],
+          'tmp/amd/pugTemplate.js': ['test/fixtures/pugTemplate.pug']
         },
         options: {
           client: true,
@@ -68,15 +68,15 @@ module.exports = function(grunt) {
 
       compile_jst: {
         files: {
-          'tmp/jst/jade.js': ['test/fixtures/jade.jade'],
-          'tmp/jst/jade2.js': ['test/fixtures/jade2.jade'],
-          'tmp/jst/jadeInclude.js': ['test/fixtures/jadeInclude.jade'],
-          'tmp/jst/jadeTemplate.js': ['test/fixtures/jadeTemplate.jade']
+          'tmp/jst/pug.js': ['test/fixtures/pug.pug'],
+          'tmp/jst/pug2.js': ['test/fixtures/pug2.pug'],
+          'tmp/jst/pugInclude.js': ['test/fixtures/pugInclude.pug'],
+          'tmp/jst/pugTemplate.js': ['test/fixtures/pugTemplate.pug']
         },
         options: {
           client: true,
           compileDebug: false,
-          processName: function(str) { return str.match(/^test\/fixtures\/(.*)\.jade$/)[1]; },
+          processName: function(str) { return str.match(/^test\/fixtures\/(.*)\.pug$/)[1]; },
           data: {
             test: true,
             year: '<%= grunt.template.today("yyyy") %>'
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
       },
       compile_dynamic_data: {
         files: {
-          'tmp/jadeDynamicData.html': ['test/fixtures/jadeDynamicData.jade']
+          'tmp/pugDynamicData.html': ['test/fixtures/pugDynamicData.pug']
         },
         options: {
           compileDebug: false,
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
       },
       compile_inline_filters: {
         files: {
-          'tmp/inlineFilters.html': ['test/fixtures/jadeFilters.jade']
+          'tmp/inlineFilters.html': ['test/fixtures/pugFilters.pug']
         },
         options: {
           filters: {
@@ -120,7 +120,7 @@ module.exports = function(grunt) {
       },
       compile_exported_filters: {
         files: {
-          'tmp/exportedFilters.html': ['test/fixtures/jadeFilters.jade']
+          'tmp/exportedFilters.html': ['test/fixtures/pugFilters.pug']
         },
         options: {
           filters: require('./test/fixtures/inc/filters.js'),
@@ -134,7 +134,7 @@ module.exports = function(grunt) {
       },
       compile_advanced_filters: {
         files: {
-          'tmp/jadeAdvancedFilters.html': ['test/fixtures/jadeAdvancedFilters.jade']
+          'tmp/pugAdvancedFilters.html': ['test/fixtures/pugAdvancedFilters.pug']
         },
         options: {
           filters: require('./test/fixtures/inc/advancedFilters.js'),
@@ -163,7 +163,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['jshint', 'clean', 'jade', 'nodeunit']);
+  grunt.registerTask('test', ['jshint', 'clean', 'pug', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['test', 'build-contrib']);

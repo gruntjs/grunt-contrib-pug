@@ -1,23 +1,23 @@
 {
-  "name": "grunt-contrib-jade",
-  "description": "Compile Jade templates",
+  "name": "grunt-contrib-pug",
+  "description": "Compile Pug templates",
   "version": "1.0.0",
   "author": {
     "name": "Grunt Team",
     "url": "http://gruntjs.com/"
   },
-  "repository": "gruntjs/grunt-contrib-jade",
+  "repository": "gruntjs/grunt-contrib-pug",
   "license": "MIT",
   "engines": {
     "node": ">=0.10.0"
   },
-  "main": "tasks/jade.js",
+  "main": "tasks/pug.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test --verbose"
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "jade": "^1.11.0"
+    "pug": "^0.1.0"
   },
   "devDependencies": {
     "grunt": "^1.0.0",

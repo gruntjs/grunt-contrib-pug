@@ -9,7 +9,7 @@ Output indented HTML.
 ## data
 Type: `Object`
 
-Sets the data passed to Jade during template compilation. Any data can be passed to the template (including grunt templates).
+Sets the data passed to Pug during template compilation. Any data can be passed to the template (including grunt templates).
 
 This value also might be a function taking source and destination path as arguments and returning a data object. Within the function, `this` is bound to the file configuration object.
 
@@ -40,7 +40,7 @@ Type: `Object`
 
 If you want to use filters you have two ways to do it. First you can write your filters inline within your Gruntfile.js or define filters in separate file and export it.
 
-Filters are given a context with the `jade` instance and local variables: `{jade: jade, data: data}`, where `jade` is global jade instance and `data` is options passed to `options.data`. You can use `this.jade.render()` inside your filters to render the content of a block and locals as `#{variable}` from your data.
+Filters are given a context with the `pug` instance and local variables: `{pug: pug, data: data}`, where `pug` is global pug instance and `data` is options passed to `options.data`. You can use `this.pug.render()` inside your filters to render the content of a block and locals as `#{variable}` from your data.
 
 ### Inline filters
 
@@ -65,16 +65,16 @@ options: {
 
 *filters.js:*
 ```js
-var jadefilters = module.exports = {};
-jadefilters.some = function(block) {};
-jadefilters.another = function(block) {};
+var pugfilters = module.exports = {};
+pugfilters.some = function(block) {};
+pugfilters.another = function(block) {};
 ```
 
 ## compileDebug
 Type: `Boolean`
 Default: `true`
 
-Add Jade debug instructions to generated JS templates.
+Add Pug debug instructions to generated JS templates.
 
 ## client
 Type: `Boolean`
@@ -82,7 +82,7 @@ Default: `false`
 
 Compile to JS template functions for client-side use rather than directly to HTML.
 
-Make sure to also include the Jade runtime (only `runtime.js`) as described in the [Jade documentation](https://github.com/visionmedia/jade#browser-support).
+Make sure to also include the Pug runtime (only `runtime.js`) as described in the [Pug documentation](https://github.com/visionmedia/pug#browser-support).
 
 ## namespace
 Type: `String`, `Boolean`
