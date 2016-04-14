@@ -1,6 +1,6 @@
-# grunt-contrib-jade v1.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-jade.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-jade) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-jade/branch/master)
+# grunt-contrib-pug v1.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-pug.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-pug) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-pug/branch/master)
 
-> Compile Jade templates
+> Compile Pug templates
 
 
 
@@ -9,21 +9,20 @@
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-contrib-jade --save-dev
+npm install grunt-contrib-pug --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-contrib-jade');
+grunt.loadNpmTasks('grunt-contrib-pug');
 ```
 
-*This plugin was designed to work with Grunt 0.4.x. If you're still using grunt v0.3.x it's strongly recommended that [you upgrade](http://gruntjs.com/upgrading-from-0.3-to-0.4), but in case you can't please use [v0.3.1](https://github.com/gruntjs/grunt-contrib-jade/tree/grunt-0.3-stable).*
 
 
 
-## Jade task
-_Run this task with the `grunt jade` command._
+## Pug task
+_Run this task with the `grunt pug` command._
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 ### Options
@@ -37,7 +36,7 @@ Output indented HTML.
 #### data
 Type: `Object`
 
-Sets the data passed to Jade during template compilation. Any data can be passed to the template (including grunt templates).
+Sets the data passed to Pug during template compilation. Any data can be passed to the template (including grunt templates).
 
 This value also might be a function taking source and destination path as arguments and returning a data object. Within the function, `this` is bound to the file configuration object.
 
@@ -68,7 +67,7 @@ Type: `Object`
 
 If you want to use filters you have two ways to do it. First you can write your filters inline within your Gruntfile.js or define filters in separate file and export it.
 
-Filters are given a context with the `jade` instance and local variables: `{jade: jade, data: data}`, where `jade` is global jade instance and `data` is options passed to `options.data`. You can use `this.jade.render()` inside your filters to render the content of a block and locals as `#{variable}` from your data.
+Filters are given a context with the `pug` instance and local variables: `{pug: pug, data: data}`, where `pug` is global pug instance and `data` is options passed to `options.data`. You can use `this.pug.render()` inside your filters to render the content of a block and locals as `#{variable}` from your data.
 
 ##### Inline filters
 
@@ -93,16 +92,16 @@ options: {
 
 *filters.js:*
 ```js
-var jadefilters = module.exports = {};
-jadefilters.some = function(block) {};
-jadefilters.another = function(block) {};
+var pugfilters = module.exports = {};
+pugfilters.some = function(block) {};
+pugfilters.another = function(block) {};
 ```
 
 #### compileDebug
 Type: `Boolean`
 Default: `true`
 
-Add Jade debug instructions to generated JS templates.
+Add Pug debug instructions to generated JS templates.
 
 #### client
 Type: `Boolean`
@@ -110,7 +109,7 @@ Default: `false`
 
 Compile to JS template functions for client-side use rather than directly to HTML.
 
-Make sure to also include the Jade runtime (only `runtime.js`) as described in the [Jade documentation](https://github.com/visionmedia/jade#browser-support).
+Make sure to also include the Pug runtime (only `runtime.js`) as described in the [Pug documentation](https://github.com/visionmedia/pug#browser-support).
 
 #### namespace
 Type: `String`, `Boolean`
@@ -159,7 +158,7 @@ This option accepts a function that lets you perform additional content processi
 ### Usage Examples
 
 ```js
-jade: {
+pug: {
   compile: {
     options: {
       data: {
@@ -167,7 +166,7 @@ jade: {
       }
     },
     files: {
-      "path/to/dest.html": ["path/to/templates/*.jade", "another/path/tmpl.jade"]
+      'path/to/dest.html': ['path/to/templates/*.pug', 'another/path/tmpl.pug']
     }
   }
 }
@@ -176,7 +175,7 @@ jade: {
 If you want to generate a debug file and a release file from the same template:
 
 ```js
-jade: {
+pug: {
   debug: {
     options: {
       data: {
@@ -184,7 +183,7 @@ jade: {
       }
     },
     files: {
-      "debug.html": "test.jade"
+      'debug.html': 'test.pug'
     }
   },
   release: {
@@ -194,7 +193,7 @@ jade: {
       }
     },
     files: {
-      "release.html": "test.jade"
+      'release.html': 'test.pug'
     }
   }
 }
@@ -203,16 +202,16 @@ jade: {
 If you want to use `grunt` template in `options.data`:
 
 ```js
-jade: {
+pug: {
   debug: {
     options: {
       data: {
         debug: true,
-        timestamp: "<%= new Date().getTime() %>"
+        timestamp: '<%= new Date().getTime() %>'
       }
     },
     files: {
-      "debug.html": "test.jade"
+      'debug.html': 'test.pug'
     }
   }
 }
@@ -221,16 +220,16 @@ jade: {
 or you can use `grunt` helpers (grunt object was exposed at template context):
 
 ```js
-jade: {
+pug: {
   debug: {
     options: {
       data: {
         debug: true,
-        timestamp: "<%= grunt.template.today() %>"
+        timestamp: '<%= grunt.template.today() %>'
       }
     },
     files: {
-      "debug.html": "test.jade"
+      'debug.html': 'test.pug'
     }
   }
 }
@@ -265,4 +264,4 @@ jade: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Fri Mar 18 2016 19:01:28.*
+*This file was generated on Wed Apr 13 2016 17:54:46.*
