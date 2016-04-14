@@ -1,3 +1,5 @@
+'use strict';
+
 var helpers = module.exports = {};
 
 var grunt = require('grunt');
