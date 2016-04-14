@@ -1,6 +1,5 @@
 'use strict';
 
-var grunt = require('grunt');
 var read = require('./helpers').read;
 
 exports.pug = {
