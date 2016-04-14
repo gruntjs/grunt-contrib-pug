@@ -69,8 +69,10 @@ module.exports = function(grunt) {
             f.orig.data = data;
           }
           if (options.filters) {
+            if (!f.orig.data.filters) f.orig.data.filters = {};
             Object.keys(options.filters).forEach(function(filter) {
-              pug.filters[filter] = options.filters[filter].bind(f.orig);
+              f.orig.data.filters[filter] = options.filters[filter].bind(f.orig);
+              options.filters[filter] = options.filters[filter].bind(f.orig);
             });
           }
           // if in client mode, return function source

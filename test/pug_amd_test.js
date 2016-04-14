@@ -1,10 +1,7 @@
 'use strict';
 
 var grunt = require('grunt');
-
-var read = function(src) {
-  return grunt.util.normalizelf(grunt.file.read(src));
-};
+var read = require('./helpers').read;
 
 exports.pug = {
   compile: function(test) {

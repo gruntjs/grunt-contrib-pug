@@ -1,14 +1,7 @@
 this["JST"] = this["JST"] || {};
 
-this["JST"]["pug"] = function template(locals) {
-var buf = [];
-var pug_mixins = {};
-var pug_interp;
-;var locals_for_with = (locals || {});(function (test) {
-buf.push("<div id=\"test\" class=\"test\"><span id=\"data\">data</span>");
-if ( test)
-{
-buf.push("<div>testing</div>");
+this["JST"]["pug"] = function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (test) {pug_html = pug_html + "\u003Cdiv class=\"test\" id=\"test\"\u003E\u003Cspan id=\"data\"\u003Edata\u003C\u002Fspan\u003E";
+if (test) {
+pug_html = pug_html + "\u003Cdiv\u003Etesting\u003C\u002Fdiv\u003E";
 }
-buf.push("</div>");}.call(this,"test" in locals_for_with?locals_for_with.test:typeof test!=="undefined"?test:undefined));;return buf.join("");
-};
+pug_html = pug_html + "\u003C\u002Fdiv\u003E";}.call(this,"test" in locals_for_with?locals_for_with.test:typeof test!=="undefined"?test:undefined));;return pug_html;};
