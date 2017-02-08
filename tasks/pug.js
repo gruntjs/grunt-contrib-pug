@@ -66,7 +66,8 @@ module.exports = function(grunt) {
             // if data is function, bind to f.orig, passing f.dest and f.src
             f.orig.data = data.call(f.orig, f.dest, f.src);
           } else {
-            f.orig.data = data;
+            // Defaults data to an empty object {}
+            f.orig.data = data || {};
           }
           if (options.filters) {
             if (!f.orig.data.filters) {
