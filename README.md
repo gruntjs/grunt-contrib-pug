@@ -1,4 +1,4 @@
-# grunt-contrib-pug v1.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-pug.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-pug) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/p24tu0v9akk906yq/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-pug/branch/master)
+# grunt-contrib-pug v1.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-pug.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-pug) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/aso1brjxx79khb41/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-pug/branch/master)
 
 > Compile Pug templates
 
