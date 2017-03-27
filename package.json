@@ -1,7 +1,7 @@
 {
   "name": "grunt-contrib-pug",
   "description": "Compile Pug templates",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": {
     "name": "Grunt Team",
     "url": "http://gruntjs.com/"
@@ -9,7 +9,7 @@
   "repository": "gruntjs/grunt-contrib-pug",
   "license": "MIT",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "main": "tasks/pug.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "pug": "^2.0.0-alpha3"
+    "pug": "^2.0.0-beta11"
   },
   "devDependencies": {
     "grunt": "^1.0.0",
