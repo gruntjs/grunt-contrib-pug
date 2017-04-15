@@ -235,6 +235,25 @@ pug: {
 }
 ```
 
+If you want to compile all jade files of a src directory to dist directory:
+
+```js
+jade: {
+    compile: {
+        options: {
+            pretty: true
+        },
+        files: [
+            {
+                expand: true,
+                cwd: '<%= yeoman.app %>/views',
+                src: ['**/*.jade'],
+                dest: '<%= yeoman.dist %>/views',
+                ext: '.html'
+            }
+        ]}
+}
+```
 
 ## Release History
 
