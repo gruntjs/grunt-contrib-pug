@@ -238,6 +238,7 @@ pug: {
 
 ## Release History
 
+ * 2018-09-07   v2.0.0   Drop Node.js < 6 support. Update dependencies.
  * 2016-03-04   v1.0.0   Point main to task and remove peerDeps. Update docs and tests.
  * 2015-07-08   v0.15.0   Update to jade 1.11.0. Add test for Codeblocks
  * 2014-02-02   v0.14.1   Add filename to `processContent` arguments.
@@ -264,4 +265,4 @@ pug: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Fri Sep 07 2018 03:42:29.*
+*This file was generated on Fri Sep 07 2018 03:45:41.*

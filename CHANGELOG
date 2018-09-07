@@ -1,3 +1,8 @@
+v2.0.0:
+  date: 2018-09-07
+  changes:
+    - Drop Node.js < 6 support.
+    - Update dependencies.
 v1.0.0:
   date: 2016-03-04
   changes:
