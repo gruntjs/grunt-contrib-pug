@@ -1,4 +1,4 @@
-# grunt-contrib-pug v1.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-pug.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-pug) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/aso1brjxx79khb41/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-pug/branch/master)
+# grunt-contrib-pug v2.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-pug.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-pug) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/aso1brjxx79khb41/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-pug/branch/master)
 
 > Compile Pug templates
 
@@ -6,7 +6,7 @@
 
 ## Getting Started
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+If you haven't used [Grunt](https://gruntjs.com/) before, be sure to check out the [Getting Started](https://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](https://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
 npm install grunt-contrib-pug --save-dev
@@ -24,11 +24,11 @@ grunt.loadNpmTasks('grunt-contrib-pug');
 ## Pug task
 _Run this task with the `grunt pug` command._
 
-Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
+Task targets, files and options may be specified according to the grunt [Configuring tasks](https://gruntjs.com/configuring-tasks) guide.
 ### Options
 
 #### pretty
-Type: `Boolean`
+Type: `Boolean`  
 Default: `false`
 
 Output indented HTML.
@@ -98,13 +98,13 @@ pugfilters.another = function(block) {};
 ```
 
 #### compileDebug
-Type: `Boolean`
+Type: `Boolean`  
 Default: `true`
 
 Add Pug debug instructions to generated JS templates.
 
 #### client
-Type: `Boolean`
+Type: `Boolean`  
 Default: `false`
 
 Compile to JS template functions for client-side use rather than directly to HTML.
@@ -112,7 +112,7 @@ Compile to JS template functions for client-side use rather than directly to HTM
 Make sure to also include the Pug runtime (only `runtime.js`) as described in the [Pug documentation](https://github.com/visionmedia/pug#browser-support).
 
 #### namespace
-Type: `String`, `Boolean`
+Type: `String`, `Boolean`  
 Default: `'JST'`
 
 The namespace in which the precompiled templates will be assigned. Use dot notation (*e.g.* `App.Templates`) for nested namespaces or `false` for no namespace wrapping.
@@ -121,7 +121,7 @@ When set to `false` with **amd** option set to `true`, the templates will be ret
 
 
 #### amd
-Type: `Boolean`
+Type: `Boolean`  
 Default: `false`
 
 Wraps the output file with an AMD define function and returns the compiled template namespace unless namespace has been explicitly set to false in which case the template function will be returned directly.
@@ -264,4 +264,4 @@ pug: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Wed Apr 13 2016 17:54:46.*
+*This file was generated on Fri Sep 07 2018 03:42:29.*

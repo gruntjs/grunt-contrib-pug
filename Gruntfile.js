@@ -1,6 +1,6 @@
 /*
  * grunt-contrib-pug
- * http://gruntjs.com/
+ * https://gruntjs.com/
  *
  * Copyright (c) 2016 Eric Woroshow, contributors
  * Licensed under the MIT license.

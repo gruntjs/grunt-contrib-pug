@@ -4,27 +4,27 @@
   "version": "2.0.0",
   "author": {
     "name": "Grunt Team",
-    "url": "http://gruntjs.com/"
+    "url": "https://gruntjs.com/"
   },
   "repository": "gruntjs/grunt-contrib-pug",
   "license": "MIT",
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "main": "tasks/pug.js",
   "scripts": {
     "test": "grunt test --verbose"
   },
   "dependencies": {
-    "chalk": "^1.0.0",
-    "pug": "^2.0.0-beta11"
+    "chalk": "^2.4.1",
+    "pug": "^2.0.3"
   },
   "devDependencies": {
-    "grunt": "^1.0.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-internal": "^1.1.0",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-nodeunit": "^1.0.0"
+    "grunt": "^1.0.3",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-internal": "^3.1.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-nodeunit": "^2.0.0"
   },
   "keywords": [
     "gruntplugin"
