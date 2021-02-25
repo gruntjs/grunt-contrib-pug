@@ -1,4 +1,4 @@
-# grunt-contrib-pug v2.0.0 [![Build Status: Linux](https://travis-ci.org/gruntjs/grunt-contrib-pug.svg?branch=master)](https://travis-ci.org/gruntjs/grunt-contrib-pug) [![Build Status: Windows](https://ci.appveyor.com/api/projects/status/aso1brjxx79khb41/branch/master?svg=true)](https://ci.appveyor.com/project/gruntjs/grunt-contrib-pug/branch/master)
+# grunt-contrib-pug v3.0.0 [![Build Status](https://github.com/gruntjs/grunt-contrib-pug/workflows/Tests/badge.svg)](https://github.com/gruntjs/grunt-contrib-pug/actions?workflow=Tests)
 
 > Compile Pug templates
 
@@ -28,7 +28,7 @@ Task targets, files and options may be specified according to the grunt [Configu
 ### Options
 
 #### pretty
-Type: `Boolean`
+Type: `Boolean`  
 Default: `false`
 
 Output indented HTML.
@@ -98,13 +98,13 @@ pugfilters.another = function(block) {};
 ```
 
 #### compileDebug
-Type: `Boolean`
+Type: `Boolean`  
 Default: `true`
 
 Add Pug debug instructions to generated JS templates.
 
 #### client
-Type: `Boolean`
+Type: `Boolean`  
 Default: `false`
 
 Compile to JS template functions for client-side use rather than directly to HTML.
@@ -112,7 +112,7 @@ Compile to JS template functions for client-side use rather than directly to HTM
 Make sure to also include the Pug runtime (only `runtime.js`) as described in the [Pug documentation](https://github.com/visionmedia/pug#browser-support).
 
 #### namespace
-Type: `String`, `Boolean`
+Type: `String`, `Boolean`  
 Default: `'JST'`
 
 The namespace in which the precompiled templates will be assigned. Use dot notation (*e.g.* `App.Templates`) for nested namespaces or `false` for no namespace wrapping.
@@ -121,7 +121,7 @@ When set to `false` with **amd** option set to `true`, the templates will be ret
 
 
 #### amd
-Type: `Boolean`
+Type: `Boolean`  
 Default: `false`
 
 Wraps the output file with an AMD define function and returns the compiled template namespace unless namespace has been explicitly set to false in which case the template function will be returned directly.
@@ -237,7 +237,8 @@ pug: {
 
 
 ## Release History
- * 2021-02-23   v3.0.0   Update to pug 3.0.0. Drop Node.js < 10 support.
+
+ * 2021-02-23   v3.0.0   Update to pug 3.0.0 Drop Node.js < 10 support.
  * 2018-09-07   v2.0.0   Drop Node.js < 6 support. Update dependencies.
  * 2016-03-04   v1.0.0   Point main to task and remove peerDeps. Update docs and tests.
  * 2015-07-08   v0.15.0   Update to jade 1.11.0. Add test for Codeblocks
@@ -265,4 +266,4 @@ pug: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Fri Sep 07 2018 03:45:41.*
+*This file was generated on Wed Feb 24 2021 22:30:18.*
