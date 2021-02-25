@@ -9,7 +9,7 @@
   "repository": "gruntjs/grunt-contrib-pug",
   "license": "MIT",
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "main": "tasks/pug.js",
   "scripts": {

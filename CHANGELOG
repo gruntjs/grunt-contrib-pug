@@ -1,4 +1,4 @@
-v3.0.0
+v3.0.0:
   date: 2021-02-23
   changes:
     - Update to pug 3.0.0
