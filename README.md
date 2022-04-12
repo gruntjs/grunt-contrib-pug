@@ -238,6 +238,7 @@ pug: {
 
 ## Release History
 
+ * 2022-04-12   v3.0.1   Update dependencies.
  * 2021-02-23   v3.0.0   Update to pug 3.0.0 Drop Node.js < 10 support.
  * 2018-09-07   v2.0.0   Drop Node.js < 6 support. Update dependencies.
  * 2016-03-04   v1.0.0   Point main to task and remove peerDeps. Update docs and tests.
@@ -266,4 +267,4 @@ pug: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Wed Feb 24 2021 22:30:18.*
+*This file was generated on Tue Apr 12 2022 08:42:31.*
