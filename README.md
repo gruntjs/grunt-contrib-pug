@@ -267,4 +267,4 @@ pug: {
 
 Task submitted by [Eric Woroshow](http://ericw.ca/)
 
-*This file was generated on Tue Apr 12 2022 08:42:31.*
+*This is a generated file.*
