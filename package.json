@@ -9,22 +9,22 @@
   "repository": "gruntjs/grunt-contrib-pug",
   "license": "MIT",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "main": "tasks/pug.js",
   "scripts": {
     "test": "grunt test --verbose"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
-    "pug": "^3.0.2"
+    "chalk": "^2.4.2",
+    "pug": "^3.0.3"
   },
   "devDependencies": {
-    "grunt": "^1.5.2",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-internal": "^7.0.0",
+    "grunt": "^1.6.1",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-internal": "^9.0.0",
     "grunt-contrib-jshint": "^3.2.0",
-    "grunt-contrib-nodeunit": "^4.0.0"
+    "grunt-contrib-nodeunit": "^5.0.0"
   },
   "keywords": [
     "gruntplugin"
